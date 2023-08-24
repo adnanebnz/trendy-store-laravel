@@ -23,13 +23,6 @@ class Product extends Model
         return $this->hasMany(Order::class);
     }
 
-    public function getPriceAttribute(): string
-    {
-        return array_reduce($this->image, function ($carry, $image) {
-            return $carry + $image['price'];
-        }, 0);
-    }
-
     public function scopeFilters(Builder $query, array $filters): void
     {
         if (isset($filters['search'])) {
