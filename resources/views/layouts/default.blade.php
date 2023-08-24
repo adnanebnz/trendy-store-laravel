@@ -62,21 +62,21 @@
                     tabindex="-1"
                 >
                     @auth
-                    <li><a href="{{ route('home') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mon compte</a></li>
+                    <li><a href="{{ route('index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mon compte</a></li>
                     @if (Auth::user()->isAdmin())
                     <li><a href="{{ route('admin.posts.index') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gestion des posts</a></li>
                     @endif
-                    <li><a href="{{ route('logout') }}" @click.prevent="$refs.logout.submit()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Déconnexion</a></li>
-                    <form x-ref="logout" action="{{ route('logout') }}" method="POST" class="hidden">
+                    <li><a href="{{ route('auth.logout') }}" @click.prevent="$refs.logout.submit()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Déconnexion</a></li>
+                    <form x-ref="logout" action="{{ route('auth.logout') }}" method="POST" class="hidden">
                         @csrf
                     </form>
                     @else
-                    <li><a href="{{ route('auth.login') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Connexion</a></li>
+                    <li><a href="{{ route('auth.login') }}" class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">Connexion</a></li>
                     @endauth
                 </ul>
                 @guest
                 <ul class="hidden md:flex space-x-12 font-semibold">
-                    <li><a href="{{ route('auth.login') }}">Connexion</a></li>
+                    <li><a href="{{ route('auth.login') }}" class="text-gray-700 hover:text-indigo-500 transition-all duration-100 hover:underline hover:underline-offset-8">Connexion</a></li>
                    
                 </ul>
                 @endguest
