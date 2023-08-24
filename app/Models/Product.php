@@ -12,11 +12,17 @@ class Product extends Model
     use HasFactory;
     protected $fillable = [
         'name',
+        'slug',
         'description',
         'price',
         'stock',
         'image',
     ];
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
+    }
 
     public function orders(): HasMany
     {

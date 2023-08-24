@@ -18,7 +18,7 @@
             Voir le produit
         </a>
         @else
-        <time class="text-xs text-slate-400" datetime="{{ $product->created_at }}">@datetime($product->created_at)</time>
+        <time class="text-xs text-slate-400" datetime="{{ $product->created_at }}">{{$product->created_at->format('d/m/Y H:i:s')}}</time>
         @endif
     </div>
 </article>
