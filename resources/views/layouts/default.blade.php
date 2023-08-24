@@ -71,12 +71,12 @@
                         @csrf
                     </form>
                     @else
-                    <li><a href="{{ route('login') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Connexion</a></li>
+                    <li><a href="{{ route('auth.login') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Connexion</a></li>
                     @endauth
                 </ul>
                 @guest
                 <ul class="hidden md:flex space-x-12 font-semibold">
-                    <li><a href="{{ route('login') }}">Connexion</a></li>
+                    <li><a href="{{ route('auth.login') }}">Connexion</a></li>
                    
                 </ul>
                 @endguest

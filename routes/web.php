@@ -6,5 +6,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ProductController::class, 'index'])->name('index');
 Route::get('/{product}', [ProductController::class, 'show'])->name('product.show');
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-Route::post('/login', [LoginController::class, 'login']);
+Route::get('/auth/login', [LoginController::class, 'showLoginForm'])->name('auth.login');
+Route::post('/auth/login', [LoginController::class, 'login']);
