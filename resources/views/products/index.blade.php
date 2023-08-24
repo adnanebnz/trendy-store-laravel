@@ -6,6 +6,6 @@
         @empty
         <p class="text-slate-400 text-center">Aucun résultat.</p>
         @endforelse
-        {{ $posts->links() }}
+        {{ $products->links() }}
     </div>
 </x-default-layout>

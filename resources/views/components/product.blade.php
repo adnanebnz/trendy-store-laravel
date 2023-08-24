@@ -3,10 +3,10 @@
 {{-- Début du produit --}}
 <article class="flex flex-col lg:flex-row pb-10 md:pb-16 border-b">
     <div class="lg:w-5/12">
-        <img class="w-full max-h-72 object-cover lg:max-h-none lg:h-full" src="{{ str_starts_with($post->thumbnail, 'http') ? $post->image : asset('storage/' . $post->thumbnail) }}">
+        <img class="w-full max-h-72 object-cover lg:max-h-none lg:h-full" src="{{ str_starts_with($product->thumbnail, 'http') ? $product->image : asset('storage/' . $product->image) }}">
     </div>
     <div class="flex flex-col items-start mt-5 space-y-5 lg:w-7/12 lg:mt-0 lg:ml-12">
-        <h1 class="font-bold text-slate-900 text-3xl lg:text-5xl leading-tight">{{ $post->title }}</h1>
+        <h1 class="font-bold text-slate-900 text-3xl lg:text-5xl leading-tight">{{ $product->title }}</h1>
         <p class="text-xl lg:text-2xl text-slate-600">
         </p>
         @if ($list)
