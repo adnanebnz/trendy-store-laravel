@@ -40,6 +40,7 @@
         @else
             <time class="text-xs text-slate-400"
                 datetime="{{ $product->created_at }}">{{ $product->created_at->format('d/m/Y H:i:s') }}</time>
+                {{-- TODO ADD FORM HERE --}}
         @endif
     </div>
 </article>

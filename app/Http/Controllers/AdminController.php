@@ -12,16 +12,52 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
 
-    public function index(): View
+
+    /* ------------PRODUCTS SECTION------------ */
+
+    public function adminProductIndex(): View
     {
-        return view('admin.index'); //TODO TO CREATE
+        return view('admin.products.index');
     }
-    public function createProduct(): View
+    public function adminProductCreate(): View
     {
-        return view('admin.createProduct'); //TODO TO CREATE
+        return view('admin.products.create');
     }
-    public function showOrders(): View
+    public function adminProductStore()
     {
-        return view('admin.showOrders'); //TODO TO CREATE
+        //TODO TO IMPLEMENT
+    }
+    public function adminProductEdit(): View
+    {
+        return view('admin.products.edit');
+    }
+    public function adminProductUpdate()
+    {
+        //TODO TO IMPLEMENT
+    }
+
+    public function adminProductDestroy()
+    {
+        //TODO TO IMPLEMENT
+    }
+
+
+    /* ------------ORDERS SECTION------------ */
+
+    public function adminOrderIndex(): View
+    {
+        return view('admin.orders.index');
+    }
+    public function adminOrderShow(): View
+    {
+        return view('admin.orders.show');
+    }
+    public function adminOrderUpdate()
+    {
+        //TODO TO IMPLEMENT
+    }
+    public function adminOrderDestroy()
+    {
+        //TODO TO IMPLEMENT
     }
 }
