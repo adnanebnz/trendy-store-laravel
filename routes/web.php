@@ -11,6 +11,8 @@ Route::get('/auth/login', [LoginController::class, 'showLoginForm'])->name('auth
 Route::post('/auth/login', [LoginController::class, 'login']);
 Route::match(['get', 'post'], '/auth/logout', [LoginController::class, 'logout'])->name('auth.logout');
 
+Route::post('/order', [OrderController::class, 'store'])->name('order.store');
+
 
 // Route::group(["prefix" => "admin", "middleware" => ["auth"]], function () {
 //     Route::get('/', [AdminController::class, 'index'])->name('admin.index');
