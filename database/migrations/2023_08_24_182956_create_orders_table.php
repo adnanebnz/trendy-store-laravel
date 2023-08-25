@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("product_id")->constrained()->cascadeOnDelete();
-            $table->string("email");
+            $table->foreignId("product_id")->constrained();
+            $table->string("name");
             $table->string("phone");
             $table->string("city");
+            $table->string("district");
             $table->string("address");
             $table->integer("total_price");
             $table->string("status")->default("pending");

@@ -111,17 +111,37 @@
                                         class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
                                 </div>
                             </div>
+                            <div class="w-full px-3 sm:w-1/2">
+                                <div class="mb-5">
+                                    <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
+                                        Wilaya <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" name="city" id="city" placeholder="Alger"
+                                        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
+                                </div>
+                            </div>
+                            <div class="w-full px-3 sm:w-1/2">
+                                <div class="mb-5">
+                                    <label for="district" class="mb-3 block text-base font-medium text-[#07074D]">
+                                        Daira <span class="text-red-500">*</span>
+                                    </label>
+                                    <input type="text" name="district" id="disctrict" placeholder="Haydra"
+                                        pattern="[0-9]{10}"
+                                        class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
+                                </div>
+                            </div>
                         </div>
+
                         <div class="mb-5">
                             <label for="address" class="mb-3 block text-base font-medium text-[#07074D]">
                                 Adresse de livraison <span class="text-red-500">*</span>
                             </label>
                             <input type="text" name="address" id="address"
                                 class="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md"
-                                placeholder="24 av el mouradia, Alger 16000" />
+                                placeholder="24 rue de cirta" />
                         </div>
 
-                        <div>
+                        <div class="flex items-center justify-center md:justify-start">
                             <button type="submit"
                                 class="hover:shadow-form rounded-md bg-indigo-500 py-3 px-8 text-center text-base font-semibold text-white outline-none">
                                 Commander
