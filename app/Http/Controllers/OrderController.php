@@ -10,8 +10,6 @@ class OrderController extends Controller
     // for user 
     public function store(Request $request)
     {
-        dd($request->all());
-        // TODO TRANSMIT PRODUCT ID FROM FRONTEND
         $data =  $request->validate([
             'product_id' => 'required|exists:products,id',
             'name' => 'required|string',
@@ -21,8 +19,13 @@ class OrderController extends Controller
             'address' => 'required|string',
             'total_price' => 'required|numeric|min:0',
         ]);
+        // TODO ADD FEEDBACK AND ALERTS ITS NOT WORKING GET INSPIRED FROM PRODUCTS
 
-        Order::create($data);
+        $order = Order::create($data);
+        $order->save();
+
+        session()->flash('success', 'Order created successfully');
+
         return redirect()->route('index')->with('success', 'Order created successfully');
     }
 }
