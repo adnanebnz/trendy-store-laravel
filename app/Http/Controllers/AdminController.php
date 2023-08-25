@@ -53,6 +53,9 @@ class AdminController extends Controller
 
     public function adminProductDestroy(Product $product)
     {
+        if (isset($product->image)) {
+            Storage::delete($product->image);
+        }
         $product->delete();
         session()->flash('success', 'Product deleted successfully');
         return redirect()->route('admin.products.index');
@@ -67,7 +70,7 @@ class AdminController extends Controller
             $data['image'] = $data['image']->store('images');
         }
 
-
+        $data['slug'] = Str::slug($data['name']);
         $product = Product::updateOrCreate(['id' => $product?->id], $data);
 
         return redirect()->route('product.show', ['product' => $product])->withStatus(
