@@ -19,7 +19,6 @@ class OrderController extends Controller
             'address' => 'required|string',
             'total_price' => 'required|numeric|min:0',
         ]);
-        // TODO ADD FEEDBACK AND ALERTS ITS NOT WORKING GET INSPIRED FROM PRODUCTS and add ERROR decorators in forms
 
         $order = Order::create($data);
         $order->save();
