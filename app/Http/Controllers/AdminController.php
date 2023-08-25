@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProductRequest;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -24,38 +26,53 @@ class AdminController extends Controller
     }
     public function adminProductCreate(): View
     {
-        return view('admin.products.create');
+        return $this->showForm();
     }
-    public function adminProductStore(Request $request)
+    public function adminProductStore(ProductRequest $request)
     {
-        $validated = $request->validate([
-            'name' => 'required|min:3|max:255',
-            'description' => 'required|min:10|max:1000',
-            'price' => 'required|numeric|min:10|max:100000',
-            'stock' => 'required|numeric|min:0|max:1000',
-            'image' => 'required'
+        //     $validated = $request->validate([
+        //         'name' => 'required|min:3|max:255',
+        //         'description' => 'required|min:10|max:1000',
+        //         'price' => 'required|numeric|min:10|max:100000',
+        //         'stock' => 'required|numeric|min:0|max:1000',
+        //         'image' => 'required'
+        //     ]);
+        //     $product = Product::create($validated);
+        //     $product->save();
+        //     session()->flash('success', 'Product created successfully');
+        //     return redirect()->route('admin.products.index');
+        // }
+        //
+        return $this->save($request->validated());
+    }
+    protected function showForm(Product $product = new Product()): View
+    {
+        return view('admin.products.form', [
+            'product' => $product,
         ]);
-        $product = Product::create($validated);
-        $product->save();
-        session()->flash('success', 'Product created successfully');
-        return redirect()->route('admin.products.index');
     }
-    public function adminProductEdit(): View
+
+    public function adminProductEdit(Product $product): View
     {
-        return view('admin.products.edit');
+        return $this->showForm($product);
     }
-    public function adminProductUpdate(Product $product, Request $request)
+    // public function adminProductUpdate(Product $product, Request $request)
+    // {
+    //     $validated = $request->validate([
+    //         'name' => 'required|min:3|max:255',
+    //         'description' => 'required|min:10|max:1000',
+    //         'price' => 'required|numeric|min:10|max:100000',
+    //         'stock' => 'required|numeric|min:0|max:1000',
+    //         'image' => 'required'
+    //     ]);
+    //     $product->update($validated);
+    //     session()->flash('success', 'Product updated successfully');
+    //     return redirect()->route('admin.products.index');
+    // }
+
+    public function adminProductUpdate(ProductRequest $request, Product $product): RedirectResponse
     {
-        $validated = $request->validate([
-            'name' => 'required|min:3|max:255',
-            'description' => 'required|min:10|max:1000',
-            'price' => 'required|numeric|min:10|max:100000',
-            'stock' => 'required|numeric|min:0|max:1000',
-            'image' => 'required'
-        ]);
-        $product->update($validated);
-        session()->flash('success', 'Product updated successfully');
-        return redirect()->route('admin.products.index');
+        return $this->save($request->validated(), $product);
     }
 
     public function adminProductDestroy(Product $product)

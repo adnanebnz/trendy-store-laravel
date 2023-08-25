@@ -33,7 +33,7 @@ Route::get('/admin/products', [AdminController::class, 'adminProductIndex'])->na
 Route::get('/admin/products/create', [AdminController::class, 'adminProductCreate'])->name('admin.products.create');
 Route::post('/admin/products', [AdminController::class, 'adminProductStore'])->name('admin.products.store');
 Route::get('/admin/products/{product}/edit', [AdminController::class, 'adminProductEdit'])->name('admin.products.edit');
-Route::put('/admin/products/{product}', [AdminController::class, 'adminProductUpdate'])->name('admin.products.update');
+Route::match(['get', 'put'], '/admin/products/{product}', [AdminController::class, 'adminProductUpdate'])->name('admin.products.update');
 Route::delete('/admin/products/{product}', [AdminController::class, 'adminProductDestroy'])->name('admin.products.destroy');
 
 
