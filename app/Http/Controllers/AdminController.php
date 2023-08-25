@@ -8,6 +8,8 @@ use App\Models\Product;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class AdminController extends Controller
 {
@@ -30,19 +32,6 @@ class AdminController extends Controller
     }
     public function adminProductStore(ProductRequest $request)
     {
-        //     $validated = $request->validate([
-        //         'name' => 'required|min:3|max:255',
-        //         'description' => 'required|min:10|max:1000',
-        //         'price' => 'required|numeric|min:10|max:100000',
-        //         'stock' => 'required|numeric|min:0|max:1000',
-        //         'image' => 'required'
-        //     ]);
-        //     $product = Product::create($validated);
-        //     $product->save();
-        //     session()->flash('success', 'Product created successfully');
-        //     return redirect()->route('admin.products.index');
-        // }
-        //
         return $this->save($request->validated());
     }
     protected function showForm(Product $product = new Product()): View
@@ -56,19 +45,6 @@ class AdminController extends Controller
     {
         return $this->showForm($product);
     }
-    // public function adminProductUpdate(Product $product, Request $request)
-    // {
-    //     $validated = $request->validate([
-    //         'name' => 'required|min:3|max:255',
-    //         'description' => 'required|min:10|max:1000',
-    //         'price' => 'required|numeric|min:10|max:100000',
-    //         'stock' => 'required|numeric|min:0|max:1000',
-    //         'image' => 'required'
-    //     ]);
-    //     $product->update($validated);
-    //     session()->flash('success', 'Product updated successfully');
-    //     return redirect()->route('admin.products.index');
-    // }
 
     public function adminProductUpdate(ProductRequest $request, Product $product): RedirectResponse
     {
@@ -82,6 +58,22 @@ class AdminController extends Controller
         return redirect()->route('admin.products.index');
     }
 
+    protected function save(array $data, Product $product = null): RedirectResponse
+    {
+        if (isset($data['image'])) {
+            if (isset($product->image)) {
+                Storage::delete($product->image);
+            }
+            $data['image'] = $data['image']->store('images');
+        }
+
+
+        $product = Product::updateOrCreate(['id' => $product?->id], $data);
+
+        return redirect()->route('product.show', ['product' => $product])->withStatus(
+            $product->wasRecentlyCreated ? 'Produit publié !' : 'Produit mis à jour !'
+        );
+    }
 
     /* ------------ORDERS SECTION------------ */
 

@@ -39,4 +39,8 @@ class Product extends Model
             );
         }
     }
+    public function exists(): bool
+    {
+        return (bool) $this->id;
+    }
 }
