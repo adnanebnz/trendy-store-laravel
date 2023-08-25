@@ -10,6 +10,8 @@ class OrderController extends Controller
     // for user 
     public function store(Request $request)
     {
+        dd($request->all());
+        // TODO TRANSMIT PRODUCT ID FROM FRONTEND
         $data =  $request->validate([
             'product_id' => 'required|exists:products,id',
             'name' => 'required|string',

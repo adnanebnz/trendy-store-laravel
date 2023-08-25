@@ -91,6 +91,7 @@
             <div class="flex items-center justify-center p-12">
                 <div class="mx-auto w-full max-w-full">
                     <form action="{{ route('order.store') }}" method="POST">
+                        @csrf
                         <div class="-mx-3 flex flex-wrap">
                             <div class="w-full px-3 sm:w-1/2">
                                 <div class="mb-5">
@@ -126,7 +127,6 @@
                                         Daira <span class="text-red-500">*</span>
                                     </label>
                                     <input type="text" name="district" id="disctrict" placeholder="Haydra"
-                                        pattern="[0-9]{10}"
                                         class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
                                 </div>
                             </div>
