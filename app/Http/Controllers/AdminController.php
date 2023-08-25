@@ -10,6 +10,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
+
 
 class AdminController extends Controller
 {
@@ -65,10 +67,15 @@ class AdminController extends Controller
     {
         if (isset($data['image'])) {
             if (isset($product->image)) {
-                Storage::delete($product->image);
+                // Storage::delete($product->image);
+                //DELETE IMAGE
+
             }
-            $data['image'] = $data['image']->store('images');
+            //STORE IMAGE
+            $uploadedFileUrl = Cloudinary::upload($data['image']->getRealPath())->getSecurePath();
+            // $data['image'] = $data['image']->store('images');
         }
+        $data['image'] = $uploadedFileUrl;
 
         $data['slug'] = Str::slug($data['name']);
         $product = Product::updateOrCreate(['id' => $product?->id], $data);
