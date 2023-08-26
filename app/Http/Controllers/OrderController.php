@@ -26,7 +26,8 @@ class OrderController extends Controller
         $product = Product::where('id', $data['product_id']);
         $product->decrement('stock', 1);
 
-        session()->flash('success', 'Product deleted successfully');
-        return redirect()->route('index');
+        return redirect()->route('index')->withStatus(
+            'Commande placée !'
+        );
     }
 }

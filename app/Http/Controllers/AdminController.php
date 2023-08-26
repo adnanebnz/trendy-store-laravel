@@ -59,8 +59,9 @@ class AdminController extends Controller
             Storage::delete($product->image);
         }
         $product->delete();
-        session()->flash('success', 'Product deleted successfully');
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.products.index')->withStatus(
+            'Produit Supprimé !'
+        );
     }
 
     protected function save(array $data, Product $product = null): RedirectResponse
@@ -106,13 +107,15 @@ class AdminController extends Controller
             'status' => 'required|in:pending,processing,completed,cancelled'
         ]);
         $order->update($validated);
-        session()->flash('success', 'Order updated successfully');
-        return redirect()->route('admin.orders.index');
+        return redirect()->route('admin.orders.index')->withStatus(
+            'Commande Modifié !'
+        );
     }
     public function adminOrderDestroy(Order $order)
     {
         $order->delete();
-        session()->flash('success', 'Order deleted successfully');
-        return redirect()->route('admin.orders.index');
+        return redirect()->route('admin.orders.index')->withStatus(
+            'Commande Supprimé !'
+        );
     }
 }

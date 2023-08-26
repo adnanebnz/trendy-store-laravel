@@ -330,7 +330,7 @@
                             </div>
 
                             <div class="flex items-center justify-center md:justify-start">
-                                <button type="submit"
+                                <button type="submit" onclick="(e)=>e.preventDefault()"
                                     class="hover:shadow-form rounded-md bg-indigo-500 hover:bg-indigo-600 py-3 px-8 text-center text-base font-semibold text-white outline-none">
                                     Commander
                                 </button>
