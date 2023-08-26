@@ -25,7 +25,7 @@ class OrderController extends Controller
         $order = Order::create($data);
         $order->save();
         $product = Product::where('id', $data['product_id']);
-        $product->decrement('stock', 1);
+        $product->decrement('stock', $data['quantity']);
 
         return redirect()->route('index')->withStatus(
             'Commande placée !'
