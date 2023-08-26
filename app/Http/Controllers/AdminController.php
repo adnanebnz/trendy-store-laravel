@@ -104,10 +104,12 @@ class AdminController extends Controller
     }
     public function adminOrderUpdate(Order $order, Request $request)
     {
-        $validated = $request->validate([
-            'status' => 'required|in:pending,processing,completed,cancelled'
+        $data = $request->validate([
+            'status' => 'required',
         ]);
-        $order->update($validated);
+
+        $order->status = $data['status'];
+        $order->save();
         return redirect()->route('admin.orders.index')->withStatus(
             'Commande Modifié !'
         );
