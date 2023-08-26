@@ -42,3 +42,12 @@ Route::get("/admin/orders/{order}", [AdminController::class, "adminOrderShow"])-
 Route::put("/admin/orders/{order}", [AdminController::class, "adminOrderUpdate"])->name("admin.orders.update");
 Route::delete("/admin/orders/{order}", [AdminController::class, "adminOrderDestroy"])->name("admin.orders.destroy");
 /*ADMIN ORDERS SECTION END*/
+
+/* OTHER PAGES*/
+Route::get("/faq", function () {
+    return view("faq");
+})->name('faq');
+Route::get("/contact", function () {
+    return view("contact");
+})->name('contact');
+/* OTHER PAGES END*/

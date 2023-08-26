@@ -65,7 +65,7 @@
                         'md:hidden' => Auth::guest(),
                     ]) tabindex="-1">
                     @auth
-                       
+
                         @if (Auth::user()->isAdmin())
                             <li><a href="{{ route('admin.products.index') }}"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gestion des produits</a>
@@ -80,15 +80,27 @@
                             @csrf
                         </form>
                     @else
+                        <li><a href="{{ route('faq') }}"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">FAQ</a></li>
+                        <li><a href="{{ route('contact') }}"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">Contact</a></li>
                         <li><a href="{{ route('auth.login') }}"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">Connexion</a></li>
                     @endauth
                 </ul>
                 @guest
+
                     <ul class="hidden md:flex space-x-12 font-semibold">
+                        <li><a href="{{ route('faq') }}"
+                                class="text-gray-700 hover:text-indigo-500 transition-all duration-100 hover:underline hover:underline-offset-8">FAQ</a>
+                        </li>
+                        <li><a href="{{ route('contact') }}"
+                                class="text-gray-700 hover:text-indigo-500 transition-all duration-100 hover:underline hover:underline-offset-8">Contact</a>
+                        </li>
                         <li><a href="{{ route('auth.login') }}"
                                 class="text-gray-700 hover:text-indigo-500 transition-all duration-100 hover:underline hover:underline-offset-8">Connexion</a>
                         </li>
+
 
                     </ul>
                 @endguest
@@ -136,16 +148,10 @@
                     <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
                     <nav class="list-none mb-10">
                         <li>
-                            <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                            <a class="text-gray-600 hover:text-gray-800" href="{{ route('faq') }}">FAQ</a>
                         </li>
                         <li>
-                            <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-                        </li>
-                        <li>
-                            <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                            <a class="text-gray-600 hover:text-gray-800" href="{{ route('contact') }}">Contact</a>
                         </li>
                     </nav>
                 </div>
