@@ -99,7 +99,8 @@ class AdminController extends Controller
     }
     public function adminOrderEdit(Order $order): View
     {
-        return view('admin.orders.edit', ['order' => $order]);
+        $product = Product::where('id', $order->product_id)->first();
+        return view('admin.orders.edit', ['order' => $order, 'product' => $product]);
     }
     public function adminOrderUpdate(Order $order, Request $request)
     {
