@@ -3,3 +3,4 @@
 -   ADD LINKS TO INSTA AND FACEBOOK
 -   ADD FEEDBACK AND ALERTS ITS NOT WORKING GET INSPIRED FROM PRODUCTS and add ERROR decorators   in forms ALMOST DONE
 - prevent default in form submit for orders
+- calculat total price depending on quantity
