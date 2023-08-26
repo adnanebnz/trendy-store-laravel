@@ -52,19 +52,19 @@
                                                             traitement</span>
                                                     @endif
                                                     @if ($order->status->value == 'shipped')
-                                                        <span class="text-green-500 font-bold">Livrée</span>
+                                                        <span class="text-green-500 font-bold">Terminé</span>
                                                     @endif
                                                 </label>
                                                 <select name="status"
                                                     class="mt-1 block appearance-non bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
                                                     <option value="pending"
-                                                        @if ($order->status == 'pending') selected @endif>En attente
+                                                        @if ($order->status->value == 'pending') selected @endif>En attente
                                                     </option>
                                                     <option value="processing"
-                                                        @if ($order->status == 'processing') selected @endif>En cours de
+                                                        @if ($order->status->value == 'processing') selected @endif>En cours de
                                                         traitement</option>
                                                     <option value="shipped"
-                                                        @if ($order->status == 'shipped') selected @endif>Terminé
+                                                        @if ($order->status->value == 'shipped') selected @endif>Terminé
                                                     </option>
                                                 </select>
                                             </div>
