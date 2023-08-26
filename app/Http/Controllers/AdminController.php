@@ -96,9 +96,9 @@ class AdminController extends Controller
     {
         return view('admin.orders.show');
     }
-    public function adminOrderEdit(): View
+    public function adminOrderEdit(Order $order): View
     {
-        return view('admin.orders.edit');
+        return view('admin.orders.edit', ['order' => $order]);
     }
     public function adminOrderUpdate(Order $order, Request $request)
     {

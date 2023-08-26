@@ -27,7 +27,7 @@
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                     <a href="{{ route('admin.orders.edit', ['order' => $order]) }}"
                                         class="text-indigo-600 hover:text-indigo-900">
-                                        Editer
+                                        Voir / Editer
                                     </a>
                                 </td>
                                 <td x-data
