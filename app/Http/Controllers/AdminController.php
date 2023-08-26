@@ -89,11 +89,16 @@ class AdminController extends Controller
 
     public function adminOrderIndex(): View
     {
-        return view('admin.orders.index');
+        $orders = Order::all();
+        return view('admin.orders.index', ['orders' => $orders]);
     }
     public function adminOrderShow(): View
     {
         return view('admin.orders.show');
+    }
+    public function adminOrderEdit(): View
+    {
+        return view('admin.orders.edit');
     }
     public function adminOrderUpdate(Order $order, Request $request)
     {
