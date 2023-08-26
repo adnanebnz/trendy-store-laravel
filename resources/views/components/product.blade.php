@@ -8,13 +8,13 @@
         @if (!$list)
             <div class="hidden sm:block">
 
-                <div class="border-t mt-6">
+                <div class="border-t md:mt-6">
                     <h1 class="mx-auto text-2xl font-semibold text-slate-800 mt-3">Acheter ce produit</h1>
                     <p class="text-sm text-slate-600">Veuillez remplire ce formulaire a fin d'acheter ce produit
                 </div>
                 </p>
                 {{-- TODO ADD FORM HERE --}}
-                <div class="flex items-center justify-center p-12">
+                <div class="flex items-center justify-center md:p-12">
                     <div class="mx-auto w-full max-w-full">
                         <form action="{{ route('order.store') }}" method="POST">
                             @csrf
@@ -113,7 +113,7 @@
             </div>
         @endif
     </div>
-    <div class="flex flex-col items-start mt-5 space-y-5 lg:w-7/12 lg:mt-0 lg:ml-12">
+    <div class="flex flex-col items-start mt-2 md:mt-5  space-y-2 md:space-y-5 lg:w-7/12 lg:mt-0 lg:ml-12">
         <h1 class="font-bold text-slate-900 text-3xl lg:text-5xl leading-tight">{{ $product->name }}</h1>
         <div>
             <p class="text-xl lg:text-2xl text-slate-600">
@@ -148,8 +148,8 @@
             </a>
         @else
             {{-- TODO CARDS --}}
-            <div class="border-b py-7 bg-opacity-10">
-                <div class="grid grid-cols-1 md:grid-cols-3 group bg-white shadow-xl shadow-neutral-100 border">
+            <div class="border-b pb-7 md:py-7 bg-opacity-10">
+                <div class="hidden md:grid md:grid-cols-3 group bg-white shadow-xl shadow-neutral-100 border">
                     <div
                         class="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
                         <span class="p-5 rounded-full bg-red-500 text-white shadow-lg shadow-red-200"><svg
@@ -196,7 +196,7 @@
 
             {{-- TODO ADD FAQ --}}
 
-            <div class="">
+            <div class="hidden md:block">
                 <h1 class="text-3xl font-bold text-center"><span class="text-indigo-600">Comment</span> commander</h1>
 
                 <div class="flex flex-col gap-8 mt-4">
@@ -248,13 +248,13 @@
 
             <div class="block sm:hidden">
 
-                <div class="border-t mt-6">
+                <div class="border-t md:mt-6">
                     <h1 class="mx-auto text-2xl font-semibold text-slate-800 mt-3">Acheter ce produit</h1>
                     <p class="text-sm text-slate-600">Veuillez remplire ce formulaire a fin d'acheter ce produit
                 </div>
                 </p>
                 {{-- TODO ADD FORM HERE --}}
-                <div class="flex items-center justify-center p-12">
+                <div class="flex items-center justify-center px-2 py-4 md:p-12">
                     <div class="mx-auto w-full max-w-full">
                         <form action="{{ route('order.store') }}" method="POST">
                             @csrf
