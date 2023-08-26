@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://cdn.tailgrids.com/tailgrids-fallback.css" />
 
     <!-- ====== Contact Section Start -->
-    <section class="bg-white py-10 lg:py-[70px] overflow-hidden relative z-10">
+    <section class="bg-white py-10 lg:py-[70px] overflow-hidden relative" style="z-index: 9">
         <div class="container">
             <div class="flex flex-wrap lg:justify-between -mx-4">
                 <div class="w-full lg:w-1/2 xl:w-6/12 px-4">
