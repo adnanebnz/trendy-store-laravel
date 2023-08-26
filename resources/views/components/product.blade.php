@@ -28,6 +28,9 @@
                                         </label>
                                         <input type="text" name="name" id="name" placeholder="Ali madani"
                                             class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
+                                        @error('name')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="w-full px-3 sm:w-1/2">
@@ -38,6 +41,10 @@
                                         <input type="tel" name="phone" id="phone" placeholder="0566778876"
                                             pattern="[0-9]{10}"
                                             class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
+                                        @error('phone')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                        @enderror
+
                                     </div>
                                 </div>
                                 <div class="w-full px-3 sm:w-1/2">
@@ -47,6 +54,10 @@
                                         </label>
                                         <input type="text" name="city" id="city" placeholder="Alger"
                                             class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
+                                        @error('city')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                        @enderror
+
                                     </div>
                                 </div>
                                 <div class="w-full px-3 sm:w-1/2">
@@ -56,6 +67,10 @@
                                         </label>
                                         <input type="text" name="district" id="disctrict" placeholder="Haydra"
                                             class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
+                                        @error('district')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                        @enderror
+
                                     </div>
                                 </div>
                             </div>
@@ -67,6 +82,10 @@
                                 <input type="text" name="address" id="address"
                                     class="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md"
                                     placeholder="24 rue de cirta" />
+                                @error('address')
+                                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
+
                             </div>
                             <div class="mb-5">
                                 <label for="quantity" class="mb-3 block text-base font-medium text-[#07074D]">
@@ -75,6 +94,10 @@
                                 <input type="number" name="quantity" id="quantity" min="1" value="1"
                                     max="{{ $product->stock }}"
                                     class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
+                                @error('quantity')
+                                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
+
                             </div>
 
                             <div class="flex items-center justify-center md:justify-start">
@@ -245,6 +268,10 @@
                                         </label>
                                         <input type="text" name="name" id="name" placeholder="Ali madani"
                                             class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
+                                        @error('name')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                        @enderror
+
                                     </div>
                                 </div>
                                 <div class="w-full px-3 sm:w-1/2">
@@ -255,6 +282,10 @@
                                         <input type="tel" name="phone" id="phone" placeholder="0566778876"
                                             pattern="[0-9]{10}"
                                             class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
+                                        @error('phone')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                        @enderror
+
                                     </div>
                                 </div>
                                 <div class="w-full px-3 sm:w-1/2">
@@ -264,6 +295,10 @@
                                         </label>
                                         <input type="text" name="city" id="city" placeholder="Alger"
                                             class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
+                                        @error('city')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                        @enderror
+
                                     </div>
                                 </div>
                                 <div class="w-full px-3 sm:w-1/2">
