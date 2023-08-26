@@ -65,8 +65,7 @@
                         'md:hidden' => Auth::guest(),
                     ]) tabindex="-1">
                     @auth
-                        <li><a href="{{ route('index') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Mon compte</a></li>
+                       
                         @if (Auth::user()->isAdmin())
                             <li><a href="{{ route('admin.products.index') }}"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gestion des produits</a>

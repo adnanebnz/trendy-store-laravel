@@ -26,6 +26,7 @@ class OrderFactory extends Factory
             'city' => 'Jakarta',
             'district' => 'Jakarta Selatan',
             'address' => 'Jl. Jalan',
+            'quantity' => 1,
             'total_price' => 10000,
             'created_at' => $created_at,
             'updated_at' => $created_at,
