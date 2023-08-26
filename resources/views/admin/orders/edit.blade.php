@@ -22,7 +22,7 @@
                                             <h1 class="text-black text-xl title-font font-bold mb-2">Commande sur
                                                 <span class="underline underline-offset-4">{{ $product->name }}</span>
                                             </h1>
-                                            <p class="font-medium">Quantité : <span
+                                            <p class="font-medium">Quantité: <span
                                                     class="font-bold">{{ $order->quantity }}</span></p>
                                             <p class="font-medium">Nom client: <span
                                                     class="font-bold">{{ $order->name }}</span></p>
