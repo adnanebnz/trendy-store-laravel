@@ -29,7 +29,7 @@
                 class="pb-3 pr-2 flex items-center border-b border-b-slate-300 text-slate-300 focus-within:border-b-slate-900 focus-within:text-slate-900 transition">
                 <input id="search" value="{{ request()->search }}"
                     class="px-2 w-full outline-none leading-none placeholder-slate-400" type="search" name="search"
-                    placeholder="Rechercher un article">
+                    placeholder="Rechercher un produit">
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
                         <path fill-rule="evenodd"
