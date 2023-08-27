@@ -8,12 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 /* OTHER PAGES*/
 
-Route::get("/faq", function () {
-    return view("faq");
-})->name('faq');
-Route::get("/contact", function () {
-    return view("contact");
-})->name('contact');
+Route::view("/faq", 'faq')->name('faq');
+Route::view("/contact", 'contact')->name('contact');
 /* OTHER PAGES END*/
 
 
