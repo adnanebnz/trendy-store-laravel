@@ -87,18 +87,28 @@
                                 @enderror
 
                             </div>
-                            <div class="mb-5">
+                            <div x-data="{ quantity: 1 }" class="mb-5">
                                 <label for="quantity" class="mb-3 block text-base font-medium text-[#07074D]">
                                     Quantité <span class="text-red-500">*</span>
                                 </label>
-                                <input type="number" name="quantity" id="quantity" min="1" value="1"
-                                    max="{{ $product->stock }}"
-                                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
-                                @error('quantity')
-                                    <span class="text-red-500 text-sm">{{ $message }}</span>
-                                @enderror
+                                <div class="flex items-center">
+                                    <input name="quantity" type="hidden" x-model="quantity" />
+                                    <button @click.prevent="quantity = Math.max(1, quantity - 1)"
+                                        class="px-3 py-2 rounded-l-md border border-[#e0e0e0] bg-white text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md">
+                                        -
+                                    </button>
+                                    {{-- displaying the quantity --}}
+                                    <h1 x-model="quantity" x-text="quantity"
+                                        class="border-t border-b border-[#e0e0e0] bg-white py-2 px-4 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md">
+                                    </h1>
 
+                                    <button @click.prevent="quantity = Math.min({{ $product->stock }}, quantity + 1)"
+                                        class="px-3 py-2 rounded-r-md border border-[#e0e0e0] bg-white text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md">
+                                        +
+                                    </button>
+                                </div>
                             </div>
+
 
                             <div class="flex items-center justify-center md:justify-start">
                                 <button type="submit"
@@ -308,6 +318,9 @@
                                         </label>
                                         <input type="text" name="district" id="disctrict" placeholder="Haydra"
                                             class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
+                                        @error('district')
+                                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                                        @enderror
                                     </div>
                                 </div>
                             </div>
@@ -319,18 +332,34 @@
                                 <input type="text" name="address" id="address"
                                     class="w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md"
                                     placeholder="24 rue de cirta" />
+                                @error('address')
+                                    <span class="text-red-500 text-sm">{{ $message }}</span>
+                                @enderror
                             </div>
-                            <div class="mb-5">
+                            <div x-data="{ quantity: 1 }" class="mb-5">
                                 <label for="quantity" class="mb-3 block text-base font-medium text-[#07074D]">
                                     Quantité <span class="text-red-500">*</span>
                                 </label>
-                                <input type="number" name="quantity" id="quantity" min="1" value="1"
-                                    max="{{ $product->stock }}"
-                                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md" />
+                                <div class="flex items-center">
+                                    <input name="quantity" type="hidden" x-model="quantity" />
+                                    <button @click.prevent="quantity = Math.max(1, quantity - 1)"
+                                        class="px-3 py-2 rounded-l-md border border-[#e0e0e0] bg-white text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md">
+                                        -
+                                    </button>
+                                    {{-- displaying the quantity --}}
+                                    <h1 x-model="quantity" x-text="quantity"
+                                        class="border-t border-b border-[#e0e0e0] bg-white py-2 px-4 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md">
+                                    </h1>
+
+                                    <button @click.prevent="quantity = Math.min({{ $product->stock }}, quantity + 1)"
+                                        class="px-3 py-2 rounded-r-md border border-[#e0e0e0] bg-white text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md">
+                                        +
+                                    </button>
+                                </div>
                             </div>
 
-                            <div class="flex items-center justify-center md:justify-start">
-                                <button type="submit" onclick="(e)=>e.preventDefault()"
+                            <div class="flex items-center justify-center md:justify-start mt-10">
+                                <button type="submit"
                                     class="hover:shadow-form rounded-md bg-indigo-500 hover:bg-indigo-600 py-3 px-8 text-center text-base font-semibold text-white outline-none">
                                     Commander
                                 </button>
