@@ -160,7 +160,7 @@ return [
         'day'                      => 'jour',
         'deleted_at'               => 'supprimé à',
         'description'              => 'la description',
-        'district'                 => 'quartier',
+        'district'                 => 'daira',
         'duration'                 => 'durée',
         'email'                    => 'adresse e-mail',
         'excerpt'                  => 'extrait',
