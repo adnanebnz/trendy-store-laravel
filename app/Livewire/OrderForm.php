@@ -16,8 +16,11 @@ class OrderForm extends Component
     public $total_price;
     public $quantity = 1; //PROBLEM HERE;
 
-
-
+    protected $listeners = ['setQuantity' => 'setQuantity'];
+    public function setQuantity($newQuantity)
+    {
+        $this->quantity = $newQuantity;
+    }
     public function mount($product)
     {
         $this->product = $product;
@@ -26,7 +29,6 @@ class OrderForm extends Component
 
     public function submitForm()
     {
-        dd($this->quantity);
         if ($this->validate(
             [
                 'name' => 'required|string',

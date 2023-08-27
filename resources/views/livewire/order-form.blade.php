@@ -77,27 +77,20 @@
             Quantité <span class="text-red-500">*</span>
         </label>
         <div class="flex items-center">
-            <input name="quantity" type="hidden" x-model="quantity" wire:model.defer="quantity" />
-            <button @click.prevent="quantity = Math.max(1, quantity - 1)"
+            <button @click.prevent="quantity = Math.max(1, quantity - 1); $wire.setQuantity(quantity)"
                 class="px-3 py-2 rounded-l-md border border-[#e0e0e0] bg-white text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md">
                 -
             </button>
-            <h1 x-model="quantity" x-text="quantity"
+            <h1 x-text="quantity"
                 class="border-t border-b border-[#e0e0e0] bg-white py-2 px-4 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md">
             </h1>
-
-            <button @click.prevent="quantity = Math.min({{ $product->stock }}, quantity + 1)"
+            <button
+                @click.prevent="quantity = Math.min({{ $product->stock }}, quantity + 1); $wire.setQuantity(quantity)"
                 class="px-3 py-2 rounded-r-md border border-[#e0e0e0] bg-white text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md">
                 +
             </button>
-            {{-- <input type="number" name="quantity" wire:model.defer='quantity' min="1" max="{{ $product->stock }}"
-                class="
-            w-full appearance-none rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md
-            " /> --}}
         </div>
     </div>
-
-
     <div class="flex items-center justify-center md:justify-start">
         <button type="submit"
             class="hover:shadow-form rounded-md bg-indigo-500 hover:bg-indigo-600 py-3 px-8 text-center text-base font-semibold text-white outline-none">
