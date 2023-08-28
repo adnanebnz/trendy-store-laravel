@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\ContactMessage;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Database\Seeder;
@@ -17,6 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         Product::factory(15)->create();
         Order::factory(10)->create();
+        ContactMessage::factory(10)->create();
         // \App\Models\User::factory(10)->create();
 
         \App\Models\User::factory()->create([

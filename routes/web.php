@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -9,8 +10,11 @@ use Illuminate\Support\Facades\Route;
 /* OTHER PAGES*/
 
 Route::view("/faq", 'faq')->name('faq');
-Route::view("/contact", 'contact')->name('contact');
 /* OTHER PAGES END*/
+/* CONTACT SECTION START*/
+Route::view("/contact", 'contact')->name('contact');
+Route::post("/contact", [ContactController::class, 'ContactController@store'])->name('contact.store');
+/* CONTACT SECTION END*/
 
 
 /*PRODUCT SECTION*/
@@ -48,3 +52,9 @@ Route::get("/admin/orders/{order}", [AdminController::class, "adminOrderShow"])-
 Route::put("/admin/orders/{order}", [AdminController::class, "adminOrderUpdate"])->name("admin.orders.update");
 Route::delete("/admin/orders/{order}", [AdminController::class, "adminOrderDestroy"])->name("admin.orders.destroy");
 /*ADMIN ORDERS SECTION END*/
+
+/*ADMIN CONTACTS SECTION START*/
+Route::get("/admin/contacts", [AdminController::class, "adminContactIndex"])->name("admin.contacts.index");
+Route::get("/admin/contacts/{contact}", [AdminController::class, "adminContactShow"])->name("admin.contacts.show");
+Route::delete("/admin/contacts/{contact}", [AdminController::class, "adminContactDestroy"])->name("admin.contacts.destroy");
+/*ADMIN CONTACTS SECTION END*/

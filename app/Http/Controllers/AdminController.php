@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
+use App\Models\ContactMessage;
 use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Contracts\View\View;
@@ -119,6 +120,27 @@ class AdminController extends Controller
         $order->delete();
         return redirect()->route('admin.orders.index')->withStatus(
             'Commande Supprimé !'
+        );
+    }
+    /* ------------CONTACT SECTION------------ */
+
+    public function adminContactIndex(): View
+    {
+        $contacts = ContactMessage::all();
+        return view('admin.contacts.index', ['contacts' => $contacts]);
+        // TODO TO CREATE
+    }
+    public function adminContactShow(ContactMessage $contact): View
+    {
+        return view('admin.contacts.show', ['contact' => $contact]);
+        // TODO TO CREATE AND ADD IT TO NAVBAR
+    }
+
+    public function adminContactDestroy(ContactMessage $contact)
+    {
+        $contact->delete();
+        return redirect()->route('admin.contacts.index')->withStatus(
+            'Contact Supprimé !'
         );
     }
 }

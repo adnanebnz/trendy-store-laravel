@@ -73,6 +73,9 @@
                             <li><a href="{{ route('admin.orders.index') }}"
                                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gestion des
                                     commandes</a></li>
+                            <li><a href="{{ route('admin.contacts.index') }}"
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gestion des
+                                    contactes</a></li>
                         @endif
                         <li><a href="{{ route('auth.logout') }}" @click.prevent="$refs.logout.submit()"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Déconnexion</a></li>
