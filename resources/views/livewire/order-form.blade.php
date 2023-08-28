@@ -72,11 +72,13 @@
         @enderror
 
     </div>
-    <div x-data="{ quantity: 1 }" class="mb-5">
-        <label for="quantity" class="mb-3 block text-base font-medium text-[#07074D]">
-            Quantité <span class="text-red-500">*</span>
-        </label>
-        <div class="flex items-center">
+    <div class="sticky w-full bottom-0 left-0 right-0 flex items-center justify-center bg-indigo-100 py-4 shadow-xl rounded-t-2xl"
+        x-data="{ quantity: 1 }">
+        <div class="flex items-center justify-center">
+            <button type="submit"
+                class="hover:shadow-form rounded-md bg-indigo-500 hover:bg-indigo-600 py-3 px-8 text-center text-base font-semibold text-white outline-none mr-5">
+                Commander
+            </button>
             <button @click.prevent="quantity = Math.max(1, quantity - 1); $wire.setQuantity(quantity)"
                 class="px-3 py-2 rounded-l-md border border-[#e0e0e0] bg-white text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md">
                 -
@@ -89,12 +91,8 @@
                 class="px-3 py-2 rounded-r-md border border-[#e0e0e0] bg-white text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md">
                 +
             </button>
+
         </div>
     </div>
-    <div class="flex items-center justify-center md:justify-start">
-        <button type="submit"
-            class="hover:shadow-form rounded-md bg-indigo-500 hover:bg-indigo-600 py-3 px-8 text-center text-base font-semibold text-white outline-none">
-            Commander
-        </button>
-    </div>
+
 </form>
