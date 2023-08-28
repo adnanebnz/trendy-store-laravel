@@ -8,7 +8,7 @@
                 <div class="w-full lg:w-1/2 xl:w-6/12 px-4">
                     <div class="max-w-[570px] mb-12 lg:mb-0">
                         <span class="block mb-4 text-base text-primary font-semibold">
-                            Contactez nous
+                            اتصل بنا
                         </span>
                         <h2
                             class="
@@ -21,11 +21,11 @@
                       lg:text-[36px]
                       xl:text-[40px]
                       ">
-                            LAISSEZ UN MESSAGE
+                            ترك رسالة
                         </h2>
                         <p class="text-base text-body-color leading-relaxed mb-9">
-                            Vous pouvez nous laisser un message en utilisant ce formulaire afin de nous contacter au cas
-                            où vous rencontreriez un problème lors de l'achat ou de l'expédition.
+                            يمكنك ترك رسالة لنا باستخدام هذا النموذج للتواصل معنا في حالة مواجهة أي مشكلة أثناء عملية
+                            الشراء أو الشحن.
                         </p>
 
                     </div>
@@ -36,7 +36,7 @@
                             {{-- TODO CREATE ACTION --}}
                             @csrf
                             <div class="mb-6">
-                                <input type="text" name="name" placeholder="Nom et prenom"
+                                <input type="text" name="name" placeholder="الإسم واللقب"
                                     class="
                             w-full
                             rounded
@@ -53,7 +53,7 @@
                                 @enderror
                             </div>
                             <div class="mb-6">
-                                <input type="email" placeholder="Email" name="email"
+                                <input type="email" placeholder="بريد إلكتروني" name="email"
                                     class="
                             w-full
                             rounded
@@ -70,7 +70,7 @@
                                 @enderror
                             </div>
                             <div class="mb-6">
-                                <input type="text" placeholder="Numéro de téléphone" name="phone"
+                                <input type="text" placeholder="رقم الهاتف" name="phone"
                                     class="
                             w-full
                             rounded
@@ -87,7 +87,7 @@
                                 @enderror
                             </div>
                             <div class="mb-6">
-                                <textarea rows="6" placeholder="Votre Message" name="subject"
+                                <textarea rows="6" placeholder="رسالتك" name="subject"
                                     class="
                             w-full
                             rounded
@@ -117,7 +117,7 @@
                             transition
                             hover:bg-opacity-90
                             ">
-                                    Envoyer le message
+                                    أرسل الرسالة
                                 </button>
                             </div>
                         </form>

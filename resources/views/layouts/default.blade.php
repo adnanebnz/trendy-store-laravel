@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="ar">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ $title }}</title>
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -29,7 +33,7 @@
                 class="pb-3 pr-2 flex items-center border-b border-b-slate-300 text-slate-300 focus-within:border-b-slate-900 focus-within:text-slate-900 transition">
                 <input id="search" value="{{ request()->search }}"
                     class="px-2 w-full outline-none leading-none placeholder-slate-400" type="search" name="search"
-                    placeholder="Rechercher un produit">
+                    placeholder="البحث عن منتج">
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
                         <path fill-rule="evenodd"
@@ -68,40 +72,41 @@
 
                         @if (Auth::user()->isAdmin())
                             <li><a href="{{ route('admin.products.index') }}"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gestion des produits</a>
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">اداره المنتجات</a>
                             </li>
                             <li><a href="{{ route('admin.orders.index') }}"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gestion des
-                                    commandes</a></li>
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ادارة الطلبات</a></li>
                             <li><a href="{{ route('admin.contacts.index') }}"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Gestion des
-                                    contactes</a></li>
+                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">إدارة الرسائل</a></li>
                         @endif
                         <li><a href="{{ route('auth.logout') }}" @click.prevent="$refs.logout.submit()"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">Déconnexion</a></li>
+                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">تسجيل خروج</a></li>
                         <form x-ref="logout" action="{{ route('auth.logout') }}" method="POST" class="hidden">
                             @csrf
                         </form>
                     @else
                         <li><a href="{{ route('faq') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">FAQ</a></li>
+                                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">شروط الاستخدام</a></li>
                         <li><a href="{{ route('contact') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">Contact</a></li>
+                                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">اتصل بنا</a></li>
                         <li><a href="{{ route('auth.login') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">Connexion</a></li>
+                                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">تسجيل الدخول</a></li>
                     @endauth
                 </ul>
                 @guest
 
                     <ul class="hidden md:flex space-x-12 font-semibold">
                         <li><a href="{{ route('faq') }}"
-                                class="text-gray-700 hover:text-indigo-500 transition-all duration-100 hover:underline hover:underline-offset-8">FAQ</a>
+                                class="text-gray-700 hover:text-indigo-500 transition-all duration-100 hover:underline hover:underline-offset-8">شروط
+                                الاستخدام</a>
                         </li>
                         <li><a href="{{ route('contact') }}"
-                                class="text-gray-700 hover:text-indigo-500 transition-all duration-100 hover:underline hover:underline-offset-8">Contact</a>
+                                class="text-gray-700 hover:text-indigo-500 transition-all duration-100 hover:underline hover:underline-offset-8">اتصل
+                                بنا</a>
                         </li>
                         <li><a href="{{ route('auth.login') }}"
-                                class="text-gray-700 hover:text-indigo-500 transition-all duration-100 hover:underline hover:underline-offset-8">Connexion</a>
+                                class="text-gray-700 hover:text-indigo-500 transition-all duration-100 hover:underline hover:underline-offset-8">تسجيل
+                                الدخول</a>
                         </li>
 
 
@@ -148,13 +153,14 @@
             </div>
             <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
                 <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">روابط سريعة</h2>
                     <nav class="list-none mb-10">
                         <li>
-                            <a class="text-gray-600 hover:text-gray-800" href="{{ route('faq') }}">FAQ</a>
+                            <a class="text-gray-600 hover:text-gray-800" href="{{ route('faq') }}">شروط
+                                الاستخدام</a>
                         </li>
                         <li>
-                            <a class="text-gray-600 hover:text-gray-800" href="{{ route('contact') }}">Contact</a>
+                            <a class="text-gray-600 hover:text-gray-800" href="{{ route('contact') }}">اتصل بنا</a>
                         </li>
                     </nav>
                 </div>

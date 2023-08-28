@@ -9,8 +9,8 @@
             <div class="hidden sm:block">
 
                 <div class="border-t md:mt-6">
-                    <h1 class="mx-auto text-2xl font-semibold text-slate-800 mt-3">Acheter ce produit</h1>
-                    <p class="text-sm text-slate-600">Veuillez remplire ce formulaire a fin d'acheter ce produit
+                    <h1 class="mx-auto text-2xl font-semibold text-slate-800 mt-3">شراء هذا المنتج</h1>
+                    <p class="text-sm text-slate-600">يرجى إكمال هذا النموذج لشراء هذا المنتج
                 </div>
                 </p>
                 {{-- TODO ADD FORM HERE --}}
@@ -32,12 +32,12 @@
             @if ($product->stock == 0)
                 <span
                     class="inline-flex items-center px-3 py-0.5 rounded-full font-medium bg-red-100 text-red-800 mt-2">
-                    Indisponible
+                    غير متوفر
                 </span>
             @else
                 <span
                     class="inline-flex items-center px-3 py-0.5 rounded-full font-medium bg-green-100 text-green-800 mt-2">
-                    Stock: {{ $product->stock }}
+                    متوفر: {{ $product->stock }}
                 </span>
             @endif
             <p class="text-md text-slate-600 mt-3">
@@ -48,7 +48,7 @@
             <a href="{{ route('product.show', ['product' => $product]) }}"
                 class="flex items-center py-5 px-7 font-semibold bg-slate-700 hover:bg-slate-900 transition text-slate-50 rounded-full">
 
-                Voir le produit
+                المزيد
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6 ml-2">
                     <path stroke-linecap="round" stroke-linejoin="round"
@@ -69,9 +69,9 @@
                                     d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12" />
                             </svg>
                         </span>
-                        <p class="text-md font-medium text-slate-700 mt-3">Livraison express</p>
-                        <p class="mt-2 text-sm text-slate-500">Avec Yaliddine vous benificiez de la livraison express
-                            dans un maximum de 4 jours de votre achat!</p>
+                        <p class="text-md font-medium text-slate-700 mt-3">الشحن السريع</p>
+                        <p class="mt-2 text-sm text-slate-500">مع ياليدين، يمكنك الاستفادة من التوصيل السريع خلال 4 أيام
+                            كحد أقصى من تاريخ الشراء!</p>
                     </div>
 
                     <div
@@ -83,8 +83,8 @@
                                     d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </span>
-                        <p class="text-md font-medium text-slate-700 mt-3">Produits Haut Qualité</p>
-                        <p class="mt-2 text-sm text-slate-500">Avec nous vous savez ou mettre votre argent!</p>
+                        <p class="text-md font-medium text-slate-700 mt-3">منتج ذو جوده عاليه</p>
+                        <p class="mt-2 text-sm text-slate-500">Aمعنا تعرف أين تضع أموالك!</p>
                     </div>
 
                     <div
@@ -95,10 +95,9 @@
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
                             </svg></span>
-                        <p class="text-md font-medium text-slate-700 mt-3">Support Disponible</p>
-                        <p class="mt-2 text-sm text-slate-500">Vous pouvez nous contacter quand vous voulez si vous
-                            avez
-                            des problémes l'ors de l'achat.</p>
+                        <p class="text-md font-medium text-slate-700 mt-3">الدعم التقني المتوفر</p>
+                        <p class="mt-2 text-sm text-slate-500">يمكنك الاتصال بنا وقتما تشاء إذا واجهت أي مشاكل أثناء
+                            عملية الشراء.</p>
                     </div>
                 </div>
             </div>
@@ -107,7 +106,7 @@
             {{-- TODO ADD FAQ --}}
 
             <div class="hidden md:block">
-                <h1 class="text-3xl font-bold text-center"><span class="text-indigo-600">Comment</span> commander</h1>
+                <h1 class="text-3xl font-bold text-center"><span class="text-indigo-600">كيف</span> اطلب</h1>
 
                 <div class="flex flex-col gap-8 mt-4">
                     <div
@@ -124,10 +123,9 @@
                         </div>
                         <div
                             class="bg-white shadow-lg rounded-md p-4 transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50">
-                            <h1 class="font-bold text-lg pb-4">1. Remplir le formulaire </h1>
+                            <h1 class="font-bold text-lg pb-4">أكمل النموذج </h1>
                             <p class="text-sm">
-                                Vous devez remplir le formulaire avec vos informations correctes à fin d'acheter ce
-                                produit.
+                                يجب عليك إكمال النموذج بمعلوماتك الصحيحة لشراء هذا المنتج.
                             </p>
                         </div>
                     </div>
@@ -145,10 +143,10 @@
                         </div>
                         <div
                             class="bg-white shadow-lg rounded-md p-4 transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50">
-                            <h1 class="font-bold text-lg pb-4">2. Attendez notre appel</h1>
+                            <h1 class="font-bold text-lg pb-4">انتظر مكالمتنا.</h1>
                             <p class="text-sm">
-                                Vous devez attendre notre appel pour confirmer l'achat, en cas de soucis vous pouvez
-                                nous contacter via le formulaire de contact.
+                                يجب عليك انتظار مكالمتك لتأكيد عملية الشراء، وفي حالة القلق يمكنك التواصل معنا عبر نموذج
+                                الاتصال.
                             </p>
                         </div>
                     </div>
@@ -159,8 +157,8 @@
             <div class="block sm:hidden">
 
                 <div class="border-t md:mt-6">
-                    <h1 class="mx-auto text-2xl font-semibold text-slate-800 mt-3">Acheter ce produit</h1>
-                    <p class="text-sm text-slate-600">Veuillez remplire ce formulaire a fin d'acheter ce produit
+                    <h1 class="mx-auto text-2xl font-semibold text-slate-800 mt-3">شراء هذا المنتج</h1>
+                    <p class="text-sm text-slate-600">يرجى إكمال هذا النموذج لشراء هذا المنتج.
                 </div>
                 </p>
                 {{-- TODO ADD FORM HERE --}}
