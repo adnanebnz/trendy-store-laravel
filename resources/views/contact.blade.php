@@ -32,7 +32,7 @@
                 </div>
                 <div class="w-full lg:w-1/2 xl:w-5/12 px-4">
                     <div class="bg-white relative rounded-lg p-8 sm:p-12 shadow-lg">
-                        <form action="#" method="POST">
+                        <form action="{{ route('contact.store') }}" method="POST">
                             {{-- TODO CREATE ACTION --}}
                             @csrf
                             <div class="mb-6">
@@ -48,6 +48,9 @@
                             focus-visible:shadow-none
                             focus:border-primary
                             " />
+                                @error('name')
+                                    <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-6">
                                 <input type="email" placeholder="Email" name="email"
@@ -62,6 +65,9 @@
                             focus-visible:shadow-none
                             focus:border-primary
                             " />
+                                @error('email')
+                                    <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-6">
                                 <input type="text" placeholder="Numéro de téléphone" name="phone"
@@ -76,9 +82,12 @@
                             focus-visible:shadow-none
                             focus:border-primary
                             " />
+                                @error('phone')
+                                    <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="mb-6">
-                                <textarea rows="6" placeholder="Votre Message"
+                                <textarea rows="6" placeholder="Votre Message" name="subject"
                                     class="
                             w-full
                             rounded
@@ -91,6 +100,9 @@
                             focus-visible:shadow-none
                             focus:border-primary
                             "></textarea>
+                                @error('subject')
+                                    <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div>
                                 <button type="submit"

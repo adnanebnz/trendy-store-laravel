@@ -13,7 +13,7 @@ Route::view("/faq", 'faq')->name('faq');
 /* OTHER PAGES END*/
 /* CONTACT SECTION START*/
 Route::view("/contact", 'contact')->name('contact');
-Route::post("/contact", [ContactController::class, 'ContactController@store'])->name('contact.store');
+Route::post("/contact", [ContactController::class, 'store'])->name('contact.store');
 /* CONTACT SECTION END*/
 
 
