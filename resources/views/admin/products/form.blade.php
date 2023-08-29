@@ -15,6 +15,8 @@
                 <div class="mt-10 space-y-8 md:w-2/3">
                     <x-input name="name" label="Nom du produit" :value="$product->name" />
                     <x-input name="price" label="Prix du produit" :value="$product->price" />
+                    <x-input name="discount_price" label="Prix du produit apres promotion (facultatif)"
+                        :value="$product->discount_price" />
                     <x-input name="stock" label="Stock du produit" :value="$product->stock" />
                     <x-textarea name="description"
                         label="Description du produit">{{ $product->description }}</x-textarea>

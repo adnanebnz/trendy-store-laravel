@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text("description");
             $table->text("short_description");
             $table->integer("price");
+            $table->integer("discount_price")->nullable();
             $table->integer("stock");
             $table->string("image");
             $table->timestamps();

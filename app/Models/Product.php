@@ -19,7 +19,8 @@ class Product extends Model
         'price',
         'stock',
         'image',
-        'short_description'
+        'short_description',
+        'discount_price'
     ];
 
     public function getRouteKeyName(): string

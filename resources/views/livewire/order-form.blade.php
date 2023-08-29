@@ -73,22 +73,25 @@
 
     </div>
     <div class="sticky w-full bottom-0 left-0 right-0 flex items-center justify-center bg-indigo-100 py-4 shadow-xl rounded-t-2xl"
-        x-data="{ quantity: 1 }">
+        x-data="{ quantity: 1, price: {{ $product->price }} }">
         <div class="flex items-center justify-center">
             <button type="submit"
-                class="hover:shadow-form rounded-md bg-indigo-500 hover:bg-indigo-600 py-3 px-8 text-center text-base font-semibold text-white outline-none mr-5">
+                class="hover:shadow-form rounded-md bg-indigo-500 hover:bg-indigo-600 py-3 px-5 text-center text-base font-semibold text-white outline-none mr-2 md:mr-5">
                 اشتري الآن
             </button>
+            <h1 x-text="price * quantity +' DZD'"
+                class="text-sm md:text-lg font-semibold text-slate-800 outline-none focus:border-indigo-500 focus:shadow-md mr-2 md:mr-5">
+            </h1>
             <button @click.prevent="quantity = Math.max(1, quantity - 1); $wire.setQuantity(quantity)"
-                class="px-3 py-2 rounded-l-md border border-[#e0e0e0] bg-white text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md">
+                class="px-3 py-2 rounded-l-md border border-[#e0e0e0] bg-white text-slate-700 outline-none focus:border-indigo-500 focus:shadow-md">
                 -
             </button>
             <h1 x-text="quantity"
-                class="border-t border-b border-[#e0e0e0] bg-white py-2 px-4 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md">
+                class="border-t border-b border-[#e0e0e0] bg-white py-2 px-4 text-base font-medium text-slate-700 outline-none focus:border-indigo-500 focus:shadow-md">
             </h1>
             <button
                 @click.prevent="quantity = Math.min({{ $product->stock }}, quantity + 1); $wire.setQuantity(quantity)"
-                class="px-3 py-2 rounded-r-md border border-[#e0e0e0] bg-white text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md">
+                class="px-3 py-2 rounded-r-md border border-[#e0e0e0] bg-white text-slate-700 outline-none focus:border-indigo-500 focus:shadow-md">
                 +
             </button>
 

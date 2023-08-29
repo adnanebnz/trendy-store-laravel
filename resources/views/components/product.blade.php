@@ -26,29 +26,41 @@
     <div class="flex flex-col items-start mt-2 md:mt-5  space-y-2 md:space-y-5 lg:w-7/12 lg:mt-0 lg:ml-12">
         <h1 class="font-bold text-slate-900 text-3xl lg:text-5xl leading-tight text-left">{{ $product->name }}</h1>
         <div>
-            <p class="text-xl lg:text-2xl text-slate-600 text-left">
-                {{ $product->price }} DZD
-            </p>
-            @if ($product->stock == 0)
-                <span
-                    class="inline-flex items-center px-3 py-0.5 rounded-full font-medium bg-red-100 text-red-800 mt-2">
-                    غير متوفر
-                </span>
-            @else
-                <span
-                    class="inline-flex items-center px-3 py-0.5 rounded-full font-medium bg-green-100 text-green-800 mt-2">
-                    متوفر: {{ $product->stock }}
-                </span>
-            @endif
-            @if ($list)
-                <p class="text-md text-slate-600 mt-3 text-left">
-                    {{ $product->short_description }}
+            <div class="flex flex-row items-center gap-4">
+                <p @class([
+                    'text-xl lg:text-2xl text-slate-600',
+                    'text-red-500 line-through' => isset($product->discount_price),
+                ])>
+                    {{ $product->price }} DZD
                 </p>
-            @else
-                <p class="text-md text-slate-600 mt-3 text-left">
-                    {{ $product->description }}
-                </p>
-            @endif
+                @if ($product->discount_price)
+                    <p class="text-xl lg:text-2xl text-green-600">
+                        {{ $product->discount_price }} DZD
+                    </p>
+                @endif
+            </div>
+            <div class="flex items-center md:block">
+                @if ($product->stock == 0)
+                    <span
+                        class="inline-flex items-center px-3 py-0.5 rounded-full font-medium bg-red-100 text-red-800 mt-2">
+                        غير متوفر
+                    </span>
+                @else
+                    <span
+                        class="inline-flex items-center px-3 py-0.5 rounded-full font-medium bg-green-100 text-green-800 mt-2">
+                        متوفر: {{ $product->stock }}
+                    </span>
+                @endif
+                @if ($list)
+                    <p class="text-md text-slate-600 mt-3 text-left">
+                        {{ $product->short_description }}
+                    </p>
+                @else
+                    <p class="hidden md:block text-md text-slate-600 mt-3 text-left">
+                        {{ $product->description }}
+                    </p>
+                @endif
+            </div>
 
         </div>
         @if ($list)
@@ -65,7 +77,7 @@
             </a>
         @else
             {{-- TODO CARDS --}}
-            <div class="border-b pb-7 md:py-7 bg-opacity-10">
+            <div class="border-b md:pb-7 md:py-7 bg-opacity-10">
                 <div class="hidden md:grid md:grid-cols-3 group bg-white shadow-xl shadow-neutral-100 border">
                     <div
                         class="p-10 flex flex-col items-center text-center group md:lg:xl:border-r md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
@@ -164,7 +176,7 @@
             <div class="block sm:hidden">
 
                 <div class="border-t md:mt-6">
-                    <h1 class="mx-auto text-2xl font-semibold text-slate-800 mt-3">شراء هذا المنتج</h1>
+                    <h1 class="mx-auto text-2xl font-semibold text-slate-800 mt-2">شراء هذا المنتج</h1>
                     <p class="text-sm text-slate-600">يرجى إكمال هذا النموذج لشراء هذا المنتج.
                 </div>
                 </p>
@@ -174,6 +186,10 @@
                         <livewire:order-form :product="$product" />
                     </div>
                 </div>
+                <h1 class="text-left text-xl font-semibold text-slate-800 mt-3">Description:</h1>
+                <p class="text-md text-slate-600 mt-3 text-left">
+                    {{ $product->description }}
+                </p>
                 {{-- TODO FORM ENDS HERE --}}
             </div>
         @endif
