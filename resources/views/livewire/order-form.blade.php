@@ -35,68 +35,16 @@
                 <label for="name" class="mb-3 block text-base font-medium text-[#07074D]">
                     <span class="text-red-500">*</span> الولاية
                 </label>
+                @php
+                    use AnouarTouati\AlgerianCitiesLaravel\Facades\AlgerianCitiesFacade;
+                    $wilayas = AlgerianCitiesFacade::getAllWilayas();
+                @endphp
                 <select name="city" id="city"
-                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md"
+                    class="w-full rounded-md border border-[#e0e0e0] bg-white py-2 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-indigo-500 focus:shadow-md"
                     wire:model.defer='city'>
-                    <option value="">اختر الولاية</option>
-                    <option value="أدرار">أدرار</option>
-                    <option value="الشلف">الشلف</option>
-                    <option value="الأغواط">الأغواط</option>
-                    <option value="أم البواقي">أم البواقي</option>
-                    <option value="باتنة">باتنة</option>
-                    <option value="بجاية">بجاية</option>
-                    <option value="بسكرة">بسكرة</option>
-                    <option value="بشار">بشار</option>
-                    <option value="البليدة">البليدة</option>
-                    <option value="البويره">البويره</option>
-                    <option value="تمنراست">تمنراست</option>
-                    <option value="تبسة">تبسة</option>
-                    <option value="تلمسان">تلمسان</option>
-                    <option value="تيارت">تيارت</option>
-                    <option value="تيزي وزو">تيزي وزو</option>
-                    <option value="الجزائر">الجزائر</option>
-                    <option value="الجلفة">الجلفة</option>
-                    <option value="جيجل">جيجل</option>
-                    <option value="سطيف">سطيف</option>
-                    <option value="سعيدة">سعيدة</option>
-                    <option value="سكيكدة">سكيكدة</option>
-                    <option value="سيدي بلعباس">سيدي بلعباس</option>
-                    <option value="عنابة">عنابة</option>
-                    <option value="قالمة">قالمة</option>
-                    <option value="قسنطينة">قسنطينة</option>
-                    <option value="المدية">المدية</option>
-                    <option value="مستغانم">مستغانم</option>
-                    <option value="المسيلة">المسيلة</option>
-                    <option value="معسكر">معسكر</option>
-                    <option value="ورقلة">ورقلة</option>
-                    <option value="وهران">وهران</option>
-                    <option value="البيض">البيض</option>
-                    <option value="إليزي">إليزي</option>
-                    <option value="برج بوعريريج">برج بوعريريج</option>
-                    <option value="بومرداس">بومرداس</option>
-                    <option value="الطارف">الطارف</option>
-                    <option value="تندوف">تندوف</option>
-                    <option value="تيسمسيلت">تيسمسيلت</option>
-                    <option value="الوادي">الوادي</option>
-                    <option value="خنشلة">خنشلة</option>
-                    <option value="سوق أهراس">سوق أهراس</option>
-                    <option value="تيبازة">تيبازة</option>
-                    <option value="ميلة">ميلة</option>
-                    <option value="عين الدفلى">عين الدفلى</option>
-                    <option value="النعامة">النعامة</option>
-                    <option value="عين تموشنت">عين تموشنت</option>
-                    <option value="غرداية">غرداية</option>
-                    <option value="غليزان">غليزان</option>
-                    <option value="تيميمون">تيميمون</option>
-                    <option value="برج باجي مختار">برج باجي مختار</option>
-                    <option value="أولاد جلال">أولاد جلال</option>
-                    <option value="بني عباس">بني عباس</option>
-                    <option value="بني عباس">بني عباس</option>
-                    <option value="عين صلاح">عين صلاح</option>
-                    <option value="عين قزام">عين قزام</option>
-                    <option value="جانت">جانت</option>
-                    <option value="مغاير">مغاير</option>
-                    <option value="المنيعه">المنيعه</option>
+                    @foreach ($wilayas as $wilaya)
+                        <option value="{{ $wilaya->wilaya_name_ascii }}">{{ $wilaya->wilaya_name }}</option>
+                    @endforeach
                 </select>
                 @error('city')
                     <span class="text-red-500
@@ -134,7 +82,7 @@
 
     </div>
     <div class="sticky w-full bottom-0 left-0 right-0 flex flex-col gap-2 bg-indigo-100 py-4 shadow-xl rounded-t-2xl"
-        x-data="{ quantity: 1, price: {{ $product->price }} }">
+        x-data="{ quantity: 1, price: {{ $product->discount_price ? $product->discount_price : $product->price }} }">
         @if ($product->shipping_price)
             <div class="md:px-5 px-3 py-1">
                 <h1 class="md:text-xl text-lg text-slate-800"><span class="text-green-500 font-semibold mr-2">DZD

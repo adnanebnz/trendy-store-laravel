@@ -4,8 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1714cdc72405224c113042fef680716e",
+    "content-hash": "66d5facc0a7f5c785289472a57e606ce",
     "packages": [
+        {
+            "name": "anouar-touati/algerian-cities-laravel",
+            "version": "v1.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/AnouarTouati/Algerian-Cities-Laravel-Package.git",
+                "reference": "2fa4fcd7e372823c0459d5d144a8c3d645a0d46e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/AnouarTouati/Algerian-Cities-Laravel-Package/zipball/2fa4fcd7e372823c0459d5d144a8c3d645a0d46e",
+                "reference": "2fa4fcd7e372823c0459d5d144a8c3d645a0d46e",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "AnouarTouati\\AlgerianCitiesLaravel\\AlgerianCitiesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "AnouarTouati\\AlgerianCitiesLaravel\\": "src/",
+                    "AnouarTouati\\AlgerianCitiesLaravel\\Database\\Seeders\\": "database/seeders/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anouar Touati",
+                    "email": "anouar.touati.at@gmail.com"
+                }
+            ],
+            "description": "A package to facilitate working with algerian cities dataset in Laravel",
+            "support": {
+                "issues": "https://github.com/AnouarTouati/Algerian-Cities-Laravel-Package/issues",
+                "source": "https://github.com/AnouarTouati/Algerian-Cities-Laravel-Package/tree/v1.2.1"
+            },
+            "time": "2023-08-29T12:48:38+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.11.0",
