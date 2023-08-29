@@ -80,8 +80,8 @@ class AdminController extends Controller
             //STORE IMAGE
             $uploadedFileUrl = Cloudinary::upload($data['image']->getRealPath())->getSecurePath();
             // $data['image'] = $data['image']->store('images');
+            $data['image'] = $uploadedFileUrl;
         }
-        $data['image'] = $uploadedFileUrl;
 
         $data['slug'] = Str::slug($data['name']);
         $product = Product::updateOrCreate(['id' => $product?->id], $data);
