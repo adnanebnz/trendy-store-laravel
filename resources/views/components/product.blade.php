@@ -24,9 +24,9 @@
         @endif
     </div>
     <div class="flex flex-col items-start mt-2 md:mt-5  space-y-2 md:space-y-5 lg:w-7/12 lg:mt-0 lg:ml-12">
-        <h1 class="font-bold text-slate-900 text-3xl lg:text-5xl leading-tight">{{ $product->name }}</h1>
+        <h1 class="font-bold text-slate-900 text-3xl lg:text-5xl leading-tight text-left">{{ $product->name }}</h1>
         <div>
-            <p class="text-xl lg:text-2xl text-slate-600">
+            <p class="text-xl lg:text-2xl text-slate-600 text-left">
                 {{ $product->price }} DZD
             </p>
             @if ($product->stock == 0)
@@ -40,8 +40,8 @@
                     متوفر: {{ $product->stock }}
                 </span>
             @endif
-            <p class="text-md text-slate-600 mt-3">
-                {{ \Illuminate\Support\Str::limit($product->description, 150, $end = '...') }}
+            <p class="text-md text-slate-600 mt-3 text-left">
+                {{ $product->description }}
             </p>
         </div>
         @if ($list)
