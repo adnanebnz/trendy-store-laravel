@@ -14,9 +14,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="antialiased pt-10 ">
+<body class="antialiased pt-10 bg-gradient-to-br from-orange-50/30 to-amber-50/20">
     {{-- Conteneur global --}}
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         {{-- Header --}}
         <header class="flex justify-between items-center space-x-5 text-slate-900">
             {{-- Logo --}}
@@ -32,8 +32,8 @@
             <form action="{{ route('index') }}"
                 class="pb-3 pr-2 flex items-center border-b border-b-slate-300 text-slate-300 focus-within:border-b-slate-900 focus-within:text-slate-900 transition">
                 <input id="search" value="{{ request()->search }}"
-                    class="px-2 w-full outline-none leading-none placeholder-slate-400" type="search" name="search"
-                    placeholder="البحث عن منتج">
+                    class="px-2 bg-transparent w-full outline-none leading-none placeholder-slate-400" type="search"
+                    name="search" placeholder="البحث عن منتج">
                 <button>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
                         <path fill-rule="evenodd"
@@ -45,7 +45,7 @@
             {{-- Navigation --}}
             <nav x-data="{ open: false }" x-cloak class="relative">
                 <button @click="open = !open" @click.outside="if (open) open = false" @class([
-                    'w-8 h-8 flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2',
+                    'w-8 h-8 flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2',
                     'md:hidden' => Auth::guest(),
                 ])>
                     @auth
@@ -95,17 +95,17 @@
                 </ul>
                 @guest
 
-                    <ul class="hidden md:flex space-x-12 font-semibold">
+                    <ul class="hidden md:flex space-x-7 font-semibold">
                         <li><a href="{{ route('faq') }}"
-                                class="text-gray-700 hover:text-indigo-500 transition-all duration-100 hover:underline hover:underline-offset-8">شروط
+                                class="text-gray-700 hover:text-slate-100 transition-all duration-200 border border-solid border-amber-500 rounded-md px-5 py-1.5 hover:bg-amber-500">شروط
                                 الاستخدام</a>
                         </li>
                         <li><a href="{{ route('contact') }}"
-                                class="text-gray-700 hover:text-indigo-500 transition-all duration-100 hover:underline hover:underline-offset-8">اتصل
+                                class="text-gray-700 hover:text-slate-100 transition-all duration-200 border border-solid border-amber-500 rounded-md px-5 py-1.5 hover:bg-amber-500">اتصل
                                 بنا</a>
                         </li>
                         <li><a href="{{ route('auth.login') }}"
-                                class="text-gray-700 hover:text-indigo-500 transition-all duration-100 hover:underline hover:underline-offset-8">تسجيل
+                                class="text-slate-100 transition-all duration-200 rounded-md px-5 py-1.5  bg-amber-500 hover:bg-amber-600">تسجيل
                                 الدخول</a>
                         </li>
 
@@ -132,7 +132,7 @@
             </div>
         @endif
 
-        <main class="mt-10 md:mt-12 lg:mt-16">
+        <main class="mt-10 md:mt-12 lg:mt-16 shadow-xl p-4 rounded-md">
             {{ $slot }}
         </main>
     </div>

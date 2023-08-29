@@ -1,7 +1,7 @@
 @props(['product', 'list' => false])
 
 {{-- Début du produit --}}
-<article class="flex flex-col lg:flex-row pb-10 md:pb-16 border-b">
+<article class="flex flex-col lg:flex-row pb-10 md:pb-16">
     <div class="lg:w-5/12">
         <img class="w-full object-cover rounded-md"
             src="{{ str_starts_with($product->image, 'http') ? $product->image : asset('storage/' . $product->image) }}">
@@ -39,7 +39,7 @@
                     </p>
                 @endif
             </div>
-            <div class="flex items-center md:block">
+            <div>
                 @if ($product->stock == 0)
                     <span
                         class="inline-flex items-center px-3 py-0.5 rounded-full font-medium bg-red-100 text-red-800 mt-2">
@@ -65,13 +65,14 @@
         </div>
         @if ($list)
             <a href="{{ route('product.show', ['product' => $product]) }}"
-                class="flex items-center py-5 px-7 font-semibold bg-slate-700 hover:bg-slate-900 transition text-slate-50 rounded-full">
+                class="flex items-center py-5 px-7 font-semibold bg-gradient-to-br from-orange-500 to-amber-500 hover:bg-gradient-to-br hover:from-orange-500 hover:to-amber-600 transition text-slate-50 rounded-lg">
 
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                     stroke="currentColor" class="w-6 h-6 mr-2">
                     <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
                 </svg>
+
                 شراء الاَن
 
             </a>
@@ -108,7 +109,7 @@
 
                     <div
                         class="p-10 flex flex-col items-center text-center group   md:lg:xl:border-b hover:bg-slate-50 cursor-pointer">
-                        <span class="p-5 rounded-full bg-indigo-500 text-white shadow-lg shadow-indigo-200"><svg
+                        <span class="p-5 rounded-full bg-amber-500 text-white shadow-lg shadow-amber-200"><svg
                                 xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="1.5">
                                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -125,7 +126,7 @@
             {{-- TODO ADD FAQ --}}
 
             <div class="hidden md:block">
-                <h1 class="text-3xl font-bold text-center"><span class="text-indigo-600">كيف</span> اطلب</h1>
+                <h1 class="text-3xl font-bold text-center"><span class="text-amber-500">كيف</span> اطلب</h1>
 
                 <div class="flex flex-col gap-8 mt-4">
                     <div
@@ -141,7 +142,7 @@
                             </div>
                         </div>
                         <div
-                            class="bg-white shadow-lg rounded-md p-4 transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50">
+                            class="bg-white shadow-lg rounded-md p-4 transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50">
                             <h1 class="font-bold text-lg pb-4">أكمل النموذج </h1>
                             <p class="text-sm">
                                 يجب عليك إكمال النموذج بمعلوماتك الصحيحة لشراء هذا المنتج.
@@ -161,7 +162,7 @@
                             </div>
                         </div>
                         <div
-                            class="bg-white shadow-lg rounded-md p-4 transition-all duration-300 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50">
+                            class="bg-white shadow-lg rounded-md p-4 transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-50 hover:to-amber-50">
                             <h1 class="font-bold text-lg pb-4">انتظر مكالمتنا.</h1>
                             <p class="text-sm">
                                 يجب عليك انتظار مكالمتك لتأكيد عملية الشراء، وفي حالة القلق يمكنك التواصل معنا عبر نموذج
