@@ -40,9 +40,16 @@
                     متوفر: {{ $product->stock }}
                 </span>
             @endif
-            <p class="text-md text-slate-600 mt-3 text-left">
-                {{ $product->description }}
-            </p>
+            @if ($list)
+                <p class="text-md text-slate-600 mt-3 text-left">
+                    {{ $product->short_description }}
+                </p>
+            @else
+                <p class="text-md text-slate-600 mt-3 text-left">
+                    {{ $product->description }}
+                </p>
+            @endif
+
         </div>
         @if ($list)
             <a href="{{ route('product.show', ['product' => $product]) }}"

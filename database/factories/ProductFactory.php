@@ -19,12 +19,14 @@ class ProductFactory extends Factory
     {
         $name = fake()->unique()->sentence;
         $description = fake()->paragraphs(asText: true);
+        $short_description = Str::limit($description, 200);
         $created_at = fake()->dateTimeBetween('-1 year');
 
         return [
             'name' => $name,
             'slug' => Str::slug($name),
             'description' => $description,
+            'short_description' => $short_description,
             'image' => fake()->imageUrl,
             'price' => fake()->numberBetween(1000, 10000),
             'stock' => fake()->numberBetween(1, 100),

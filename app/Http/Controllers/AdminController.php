@@ -72,18 +72,13 @@ class AdminController extends Controller
     protected function save(array $data, Product $product = null): RedirectResponse
     {
         if (isset($data['image'])) {
-            if (isset($product->image)) {
-                // Storage::delete($product->image);
-                //DELETE IMAGE
-
-            }
             //STORE IMAGE
             $uploadedFileUrl = Cloudinary::upload($data['image']->getRealPath())->getSecurePath();
-            // $data['image'] = $data['image']->store('images');
             $data['image'] = $uploadedFileUrl;
         }
 
         $data['slug'] = Str::slug($data['name']);
+        $data['short_description'] = Str::limit($data['description'], 200);
         $product = Product::updateOrCreate(['id' => $product?->id], $data);
 
         return redirect()->route('product.show', ['product' => $product])->withStatus(
