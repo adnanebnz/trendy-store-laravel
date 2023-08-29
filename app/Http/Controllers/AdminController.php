@@ -59,6 +59,10 @@ class AdminController extends Controller
         if (isset($product->image)) {
             Storage::delete($product->image);
         }
+        $orders = Order::where('product_id', $product->id)->get();
+        foreach ($orders as $order) {
+            $order->delete();
+        }
         $product->delete();
         return redirect()->route('admin.products.index')->withStatus(
             'Produit Supprimé !'
