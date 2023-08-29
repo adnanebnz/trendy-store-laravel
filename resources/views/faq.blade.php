@@ -1,4 +1,7 @@
-<x-default-layout>
+<div class="hidden">
+    {{ $title = 'شروط الاستخدام' }}
+</div>
+<x-default-layout :title="$title">
     <div class="md:pb-8">
         <ul>
             <li>

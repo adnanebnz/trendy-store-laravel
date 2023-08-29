@@ -1,4 +1,7 @@
-<x-default-layout>
+<div class="hidden">
+    {{ $title = 'اتصل بنا' }}
+</div>
+<x-default-layout :title="$title">
     <link rel="stylesheet" href="https://cdn.tailgrids.com/tailgrids-fallback.css" />
 
     <!-- ====== Contact Section Start -->
