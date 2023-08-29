@@ -17,6 +17,8 @@
                     <x-input name="price" label="Prix du produit" :value="$product->price" />
                     <x-input name="discount_price" label="Prix du produit apres promotion (facultatif)"
                         :value="$product->discount_price" />
+                    <x-input name="shipping_price" label="Prix du produit apres promotion (facultatif)"
+                        :value="$product->shipping_price" />
                     <x-input name="stock" label="Stock du produit" :value="$product->stock" />
                     <x-textarea name="description"
                         label="Description du produit">{{ $product->description }}</x-textarea>

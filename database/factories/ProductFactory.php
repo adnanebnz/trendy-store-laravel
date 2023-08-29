@@ -27,6 +27,8 @@ class ProductFactory extends Factory
             'slug' => Str::slug($name),
             'description' => $description,
             'short_description' => $short_description,
+            'discount_price' => fake()->numberBetween(1000, 10000),
+            'shipping_price' => fake()->numberBetween(100, 1000),
             'image' => fake()->imageUrl,
             'price' => fake()->numberBetween(1000, 10000),
             'stock' => fake()->numberBetween(1, 100),
