@@ -27,6 +27,7 @@ class ProductRequest extends FormRequest
             'name' => ['required', 'string', 'between:3,255'],
             'slug' => ['required', 'string', 'between:3,255', Rule::unique('products')->ignore($this->product)],
             'discount_price' => ['nullable', 'integer', 'min:10', 'max:100000'],
+            'shipping_price' => ['nullable', 'integer', 'min:0', 'max:100000'],
             'description' => ['required', 'string', 'min:10'],
             'image' => [Rule::requiredIf($request->isMethod('post')), 'image'],
             'price' => ['required', 'integer', 'min:10', 'max:100000'],

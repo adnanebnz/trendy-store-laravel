@@ -48,6 +48,7 @@
                     <option value="بسكرة">بسكرة</option>
                     <option value="بشار">بشار</option>
                     <option value="البليدة">البليدة</option>
+                    <option value="البويره">البويره</option>
                     <option value="تمنراست">تمنراست</option>
                     <option value="تبسة">تبسة</option>
                     <option value="تلمسان">تلمسان</option>
@@ -97,7 +98,6 @@
                     <option value="مغاير">مغاير</option>
                     <option value="المنيعه">المنيعه</option>
                 </select>
-
                 @error('city')
                     <span class="text-red-500
                         text-sm">{{ $message }}</span>
