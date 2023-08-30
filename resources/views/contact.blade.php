@@ -10,7 +10,7 @@
             <div class="flex flex-wrap lg:justify-between -mx-4">
                 <div class="w-full lg:w-1/2 xl:w-6/12 px-4">
                     <div class="max-w-[570px] mb-12 lg:mb-0">
-                        <span class="block mb-4 text-base text-indigo-500 font-semibold">
+                        <span class="block mb-4 text-base text-amber-500 font-semibold">
                             اتصل بنا
                         </span>
                         <h2
@@ -49,7 +49,7 @@
                             border border-[f0f0f0]
                             outline-none
                             focus-visible:shadow-none
-                            focus:border-indigo-500
+                            focus:border-amber-500
                             " />
                                 @error('name')
                                     <span class="text-red-500">{{ $message }}</span>
@@ -66,7 +66,7 @@
                             border border-[f0f0f0]
                             outline-none
                             focus-visible:shadow-none
-                            focus:border-indigo-500
+                            focus:border-amber-500
                             " />
                                 @error('email')
                                     <span class="text-red-500">{{ $message }}</span>
@@ -83,7 +83,7 @@
                             border border-[f0f0f0]
                             outline-none
                             focus-visible:shadow-none
-                            focus:border-indigo-500
+                            focus:border-amber-500
                             " />
                                 @error('phone')
                                     <span class="text-red-500">{{ $message }}</span>
@@ -101,7 +101,7 @@
                             resize-none
                             outline-none
                             focus-visible:shadow-none
-                            focus:border-indigo-500
+                            focus:border-amber-500
                             "></textarea>
                                 @error('subject')
                                     <span class="text-red-500">{{ $message }}</span>
@@ -115,7 +115,7 @@
                             bg-amber-500
                             hover:bg-amber-600
                             rounded
-                            border border-indigo-500
+                            border border-amber-500
                             p-3
                             transition
                             hover:bg-opacity-90

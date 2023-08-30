@@ -21,12 +21,7 @@
         <header class="flex justify-between items-center space-x-5 text-slate-900">
             {{-- Logo --}}
             <a href="{{ route('index') }}" class="flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-8 h-8">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
-                </svg>
-                <h1 class="hidden md:block font-bold text-lg">Trendy Store</h1>
+                <img src="{{ asset('images/LOGO-trendy.png') }}" alt="Logo" class="h-16 w-16">
             </a>
             {{-- Formulaire de recherche --}}
             <form action="{{ route('index') }}"
@@ -136,25 +131,27 @@
             {{ $slot }}
         </main>
     </div>
-    <footer class="text-slate-600 body-font">
+    <footer class="text-slate-600">
         <div
             class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-nowrap flex-wrap flex-col">
             <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
-                <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-8 h-8">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M13.5 21v-7.5a.75.75 0 01.75-.75h3a.75.75 0 01.75.75V21m-4.5 0H2.36m11.14 0H18m0 0h3.64m-1.39 0V9.349m-16.5 11.65V9.35m0 0a3.001 3.001 0 003.75-.615A2.993 2.993 0 009.75 9.75c.896 0 1.7-.393 2.25-1.016a2.993 2.993 0 002.25 1.016c.896 0 1.7-.393 2.25-1.016a3.001 3.001 0 003.75.614m-16.5 0a3.004 3.004 0 01-.621-4.72L4.318 3.44A1.5 1.5 0 015.378 3h13.243a1.5 1.5 0 011.06.44l1.19 1.189a3 3 0 01-.621 4.72m-13.5 8.65h3.75a.75.75 0 00.75-.75V13.5a.75.75 0 00-.75-.75H6.75a.75.75 0 00-.75.75v3.75c0 .415.336.75.75.75z" />
-                    </svg>
+                <a class="flex items-center md:justify-end md:mr-10 justify-center text-gray-900">
+                    <img src="{{ asset('images/LOGO-trendy.png') }}" alt="Logo" class="h-14 w-14">
 
-                    <span class="ml-3 text-xl">Trendy Store</span>
                 </a>
-                <p class="mt-2 text-sm text-gray-500">Vente de produits electroniques</p>
+                <p class="mt-2 text-sm text-gray-500">منصة لبيع السلع الالكترونية في الجزائر</p>
             </div>
             <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
                 <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-                    <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">روابط سريعة</h2>
-                    <nav class="list-none mb-10">
+                    <h2 class="font-medium text-gray-900 tracking-widest text-lg mb-3">
+                        روابط سريعة
+                    </h2>
+                    <nav class="list-none mb-10 space-y-2">
+                        <li>
+                            <a class="text-gray-600 hover:text-gray-800" href="{{ route('index') }}">
+                                الصفحة الرئيسية
+                            </a>
+                        </li>
                         <li>
                             <a class="text-gray-600 hover:text-gray-800" href="{{ route('faq') }}">شروط
                                 الاستخدام</a>
