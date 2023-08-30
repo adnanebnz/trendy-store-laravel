@@ -24,7 +24,7 @@
         <header class="flex justify-between items-center space-x-5 text-slate-900">
             {{-- Logo --}}
             <a href="{{ route('index') }}" class="flex items-center gap-2">
-                <img src="{{ asset('images/LOGO-trendy.png') }}" alt="Logo" class="h-16 w-16">
+                <img src="{{ asset('images/LOGO-trendy.png') }}" alt="Logo" class="md:h-16 md:w-16 h-11 w-11">
             </a>
             {{-- Formulaire de recherche --}}
             <form action="{{ route('index') }}"
