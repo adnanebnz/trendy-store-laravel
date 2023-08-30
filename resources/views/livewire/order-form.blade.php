@@ -1,7 +1,9 @@
 <form method="POST" wire:submit.prevent="submitForm">
     @csrf
     <input type="hidden" name="product_id" value="{{ $product->id }} wire:model.defer='product_id'">
-    <input type="hidden" name="total_price" value="{{ $product->price }}" wire:model.defer='total_price'>
+    <input type="hidden" name="product_price"
+        value="{{ $product->discount_price ? $product->discount_price : $product->price }}"
+        wire:model.defer='product_price'>
     <div class="-mx-3 flex flex-wrap">
         <div class="w-full px-3 sm:w-1/2">
             <div class="mb-5">

@@ -14,6 +14,7 @@ class OrderForm extends Component
     public $district;
     public $address;
     public $total_price;
+    public $product_price;
     public $quantity = 1; //PROBLEM HERE;
 
     protected $listeners = ['setQuantity' => 'setQuantity'];
@@ -24,7 +25,11 @@ class OrderForm extends Component
     public function mount($product)
     {
         $this->product = $product;
-        $this->total_price = $product->price * $this->quantity;
+        if ($this->product->discount_price) {
+            $this->product_price = $this->product->discount_price;
+        } else {
+            $this->product_price = $this->product->price;
+        }
     }
 
     public function submitForm()
@@ -46,7 +51,7 @@ class OrderForm extends Component
                 'quantity' => $this->quantity,
                 'district' => $this->district,
                 'address' => $this->address,
-                'total_price' => $this->total_price * $this->quantity,
+                'total_price' => $this->product_price * $this->quantity,
             ]);
             $order = $this->product->orders()->create($data);
             $order->save();

@@ -11,6 +11,7 @@ class OrderController extends Controller
     // for user 
     public function store(Request $request)
     {
+        dd($request->all());
         $data =  $request->validate([
             'product_id' => 'required|exists:products,id',
             'name' => 'required|string',
