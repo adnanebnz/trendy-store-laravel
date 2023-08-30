@@ -25,7 +25,7 @@
     </div>
     <div class="flex flex-col items-start mt-2 md:mt-5  space-y-2 md:space-y-5 lg:w-7/12 lg:mt-0 lg:ml-12">
         <h1 class="font-bold text-slate-900 text-3xl lg:text-5xl leading-tight text-left">{{ $product->name }}</h1>
-        <div>
+        <div class>
             <div class="flex flex-row items-center gap-4">
                 <p @class([
                     'text-xl lg:text-2xl text-slate-600',
@@ -39,7 +39,7 @@
                     </p>
                 @endif
             </div>
-            <div class="flex md:block">
+            @if ($list)
                 @if ($product->stock == 0)
                     <span
                         class="inline-flex items-center px-3 py-0.5 rounded-full font-medium bg-red-100 text-red-800 mt-2">
@@ -51,6 +51,22 @@
                         متوفر: {{ $product->stock }}
                     </span>
                 @endif
+            @endif
+            <div class="flex items-center md:block">
+
+                @if (!$list)
+                    @if ($product->stock == 0)
+                        <span
+                            class="inline-flex items-center px-3 py-0.5 rounded-full font-medium bg-red-100 text-red-800 mt-2">
+                            غير متوفر
+                        </span>
+                    @else
+                        <span
+                            class="inline-flex items-center px-3 py-0.5 rounded-full font-medium bg-green-100 text-green-800 mt-2">
+                            متوفر: {{ $product->stock }}
+                        </span>
+                    @endif
+                @endif
                 @if ($list)
                     <p class="text-md text-slate-600 mt-3 text-left">
                         {{ $product->short_description }}
@@ -61,7 +77,6 @@
                     </p>
                 @endif
             </div>
-
         </div>
         @if ($list)
             <a href="{{ route('product.show', ['product' => $product]) }}"
@@ -121,7 +136,7 @@
                     </div>
                 </div>
             </div>
-            {{-- TODO  END CARDS --}}
+            {{-- TODO END CARDS --}}
 
             {{-- TODO ADD FAQ --}}
 
