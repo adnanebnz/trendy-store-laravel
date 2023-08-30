@@ -11,8 +11,8 @@
                 <div class="border-t md:mt-6">
                     <h1 class="mx-auto text-2xl font-semibold text-slate-800 mt-3">شراء هذا المنتج</h1>
                     <p class="text-sm text-slate-600">يرجى إكمال هذا النموذج لشراء هذا المنتج
+                    </p>
                 </div>
-                </p>
                 {{-- TODO ADD FORM HERE --}}
                 <div class="flex items-center justify-center md:p-12">
                     <div class="mx-auto w-full max-w-full">
@@ -194,8 +194,8 @@
                 <div class="border-t md:mt-6">
                     <h1 class="mx-auto text-2xl font-semibold text-slate-800 mt-2">شراء هذا المنتج</h1>
                     <p class="text-sm text-slate-600">يرجى إكمال هذا النموذج لشراء هذا المنتج.
+                    </p>
                 </div>
-                </p>
                 {{-- TODO ADD FORM HERE --}}
                 <div class="flex items-center justify-center px-2 py-4 md:p-12">
                     <div class="mx-auto w-full max-w-full">
