@@ -17,7 +17,7 @@
                         @method('DELETE')
                     </form>
                 </div>
-                <button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+                <button class="bg-amber-500 hover:bg-amber-600 text-white font-bold py-2 px-4 rounded">
                     <a href="{{ route('admin.contacts.index') }}">Retour</a>
                 </button>
             </div>

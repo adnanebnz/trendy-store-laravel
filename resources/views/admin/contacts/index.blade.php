@@ -33,7 +33,7 @@
                                     {{ $message->email }}</td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                     <a href="{{ route('admin.contacts.show', ['contact' => $message]) }}"
-                                        class="text-indigo-600 hover:text-indigo-900">
+                                        class="text-amber-600 hover:text-amber-700">
                                         Voir
                                     </a>
                                 </td>
@@ -41,7 +41,7 @@
                                     class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                                     <a href="{{ route('admin.contacts.destroy', ['contact' => $message]) }}"
                                         @click.prevent="$refs.delete.submit()"
-                                        class="text-indigo-600 hover:text-indigo-900">
+                                        class="text-amber-600 hover:text-amber-700">
                                         Supprimer
                                     </a>
                                     <form x-ref="delete"

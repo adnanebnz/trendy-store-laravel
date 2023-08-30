@@ -6,7 +6,7 @@
         </div>
         <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
             <a href="{{ route('admin.products.create') }}"
-                class="inline-flex rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Créer
+                class="inline-flex rounded-md bg-amber-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-amber-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-600">Créer
                 un produit</a>
         </div>
     </div>
@@ -48,13 +48,13 @@
                                     {{ $product->stock }}</td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                     <a href="{{ route('product.show', ['product' => $product]) }}" target="_blank"
-                                        class="text-indigo-600 hover:text-indigo-900">
+                                        class="text-amber-600 hover:text-abmer-700">
                                         Voir le produit
                                     </a>
                                 </td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                     <a href="{{ route('admin.products.edit', ['product' => $product]) }}"
-                                        class="text-indigo-600 hover:text-indigo-900">
+                                        class="text-amber-600 hover:text-amber-700">
                                         Editer
                                     </a>
                                 </td>
@@ -62,7 +62,7 @@
                                     class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-3">
                                     <a href="{{ route('admin.products.destroy', ['product' => $product]) }}"
                                         @click.prevent="$refs.delete.submit()"
-                                        class="text-indigo-600 hover:text-indigo-900">
+                                        class="text-amber-600 hover:text-amber-700">
                                         Supprimer
                                     </a>
                                     <form x-ref="delete"
