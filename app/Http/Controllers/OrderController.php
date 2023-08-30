@@ -21,8 +21,12 @@ class OrderController extends Controller
             'address' => 'required|string',
             'total_price' => 'required|numeric|min:0',
         ]);
-
-        $data['total_price'] = $data['quantity'] * Product::find($data['product_id'])->price;
+        $product = Product::where('id', $data['product_id'])->first();
+        if ($product->discount_price !== null && Product::find($data['product_id'])->discount_price > 0) {
+            $data['total_price'] = $data['quantity'] * $product->discount_price;
+        } else {
+            $data['total_price'] = $data['quantity'] * $product->price;
+        }
         $order = Order::create($data);
         $order->save();
         $product = Product::where('id', $data['product_id']);

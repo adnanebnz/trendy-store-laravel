@@ -42,7 +42,8 @@
                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
                                     {{ $product->name }}</td>
                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
-                                    {{ $product->price }}</td>
+                                    {{ $product->discount_price !== null && $product->discount_price > 0 ? $product->discount_price : $product->price }}
+                                </td>
                                 <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
                                     {{ $product->stock }}</td>
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
