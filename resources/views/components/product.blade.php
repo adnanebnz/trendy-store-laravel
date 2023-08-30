@@ -39,7 +39,7 @@
                     </p>
                 @endif
             </div>
-            <div>
+            <div class="flex md:block">
                 @if ($product->stock == 0)
                     <span
                         class="inline-flex items-center px-3 py-0.5 rounded-full font-medium bg-red-100 text-red-800 mt-2">
