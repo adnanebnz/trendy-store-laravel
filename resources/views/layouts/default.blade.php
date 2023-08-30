@@ -25,7 +25,7 @@
             {{-- Logo --}}
             <a href="{{ route('index') }}" class="flex items-center gap-2">
                 <img src="{{ asset('images/LOGO-trendy.png') }}" alt="Logo"
-                    class="md:h-16 md:w-16 h-11 w-11 object-cover">
+                    class="h-12 w-16 md:w-16 md:h-16 object-fill">
             </a>
             {{-- Formulaire de recherche --}}
             <form action="{{ route('index') }}"
