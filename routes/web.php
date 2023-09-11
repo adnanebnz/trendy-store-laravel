@@ -7,14 +7,11 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
-/* OTHER PAGES*/
-
-Route::view("/faq", 'faq')->name('faq');
-/* OTHER PAGES END*/
-/* CONTACT SECTION START*/
-Route::view("/contact", 'contact')->name('contact');
-Route::post("/contact", [ContactController::class, 'store'])->name('contact.store');
-/* CONTACT SECTION END*/
+/*AUTH SECTION*/
+Route::get('/auth/login', [LoginController::class, 'showLoginForm'])->name('auth.login');
+Route::post('/auth/login', [LoginController::class, 'login']);
+Route::match(['get', 'post'], '/auth/logout', [LoginController::class, 'logout'])->name('auth.logout');
+/*AUTH SECTION END*/
 
 
 /*PRODUCT SECTION*/
@@ -23,16 +20,15 @@ Route::get('/{product}', [ProductController::class, 'show'])->name('product.show
 /*PRODUCT SECTION END*/
 
 
-/*AUTH SECTION*/
-Route::get('/auth/login', [LoginController::class, 'showLoginForm'])->name('auth.login');
-Route::post('/auth/login', [LoginController::class, 'login']);
-Route::match(['get', 'post'], '/auth/logout', [LoginController::class, 'logout'])->name('auth.logout');
-/*AUTH SECTION END*/
-
-
 /*ORDER SECTION*/
 Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 /*ORDER SECTION END*/
+
+
+/* CONTACT SECTION START*/
+Route::view("/contact", 'contact')->name('contact');
+Route::post("/contact", [ContactController::class, 'store'])->name('contact.store');
+/* CONTACT SECTION END*/
 
 
 /*ADMIN PRODUCT SECTION*/
@@ -58,3 +54,8 @@ Route::get("/admin/contacts", [AdminController::class, "adminContactIndex"])->na
 Route::get("/admin/contacts/{contact}", [AdminController::class, "adminContactShow"])->name("admin.contacts.show");
 Route::delete("/admin/contacts/{contact}", [AdminController::class, "adminContactDestroy"])->name("admin.contacts.destroy");
 /*ADMIN CONTACTS SECTION END*/
+
+
+/* OTHER PAGES*/
+Route::view("/faq", 'faq')->name('faq');
+/* OTHER PAGES END*/
