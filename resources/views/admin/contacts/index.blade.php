@@ -1,21 +1,23 @@
-<x-default-layout title="Gestion des produits">
-    <div class="flex items-center justify-between">
+<x-default-layout title="إدارة رسائل الاتصال">
+    <div class="flex items-center justify-end">
         <div class="sm:flex-auto">
-            <h1 class="text-base font-semibold leading-6 text-gray-900">Messages de contact</h1>
-            <p class="mt-2 text-sm text-gray-700">Interface d'administration.</p>
+            <h1 class="text-base font-semibold leading-6 text-gray-900">رسائل الاتصال</h1>
+            <p class="mt-2 text-sm text-gray-700">واجهة الإدارة</p>
         </div>
     </div>
-    <div class="mt-14 flow-root">
+    <div class="mt-6 md:mt-14 flow-root text-left">
         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                 <table class="min-w-full divide-y divide-gray-300">
                     <thead>
                         <tr>
                             <th scope="col"
-                                class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3">Nom</th>
+                                class="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-gray-900 sm:pl-3">الاسم
+                                واللقب</th>
                             <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
-                                Téléphone</th>
-                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Email
+                                رقم الهاتف</th>
+                            <th scope="col" class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">بريد
+                                إلكتروني
                             </th>
 
                             <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-3"></th>
@@ -34,7 +36,7 @@
                                 <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                                     <a href="{{ route('admin.contacts.show', ['contact' => $message]) }}"
                                         class="text-amber-600 hover:text-amber-700">
-                                        Voir
+                                        اقرأ
                                     </a>
                                 </td>
                                 <td x-data
@@ -42,7 +44,7 @@
                                     <a href="{{ route('admin.contacts.destroy', ['contact' => $message]) }}"
                                         @click.prevent="$refs.delete.submit()"
                                         class="text-amber-600 hover:text-amber-700">
-                                        Supprimer
+                                        حذف
                                     </a>
                                     <form x-ref="delete"
                                         action="{{ route('admin.contacts.destroy', ['contact' => $message]) }}"

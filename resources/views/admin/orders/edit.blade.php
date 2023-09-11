@@ -5,7 +5,7 @@
         <div class="space-y-12">
             <div class="pb-1">
                 <h1 class="text-base font-semibold leading-7 text-gray-900">
-                    Voir / Modifier la commande
+                    عرض / تعديل الطلب
                 </h1>
                 <div>
                     <div>
