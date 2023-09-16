@@ -7,6 +7,10 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
+
+Route::view("/invoice", "invoice.invoice");
+
+
 /*AUTH SECTION*/
 Route::get('/auth/login', [LoginController::class, 'showLoginForm'])->name('auth.login');
 Route::post('/auth/login', [LoginController::class, 'login']);

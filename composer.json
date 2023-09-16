@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.1",
         "anouar-touati/algerian-cities-laravel": "^1.2",
+        "barryvdh/laravel-dompdf": "^2.0",
         "cloudinary-labs/cloudinary-laravel": "^2.0",
         "creativeorange/gravatar": "^1.0",
         "guzzlehttp/guzzle": "^7.2",
