@@ -42,17 +42,29 @@
                 </button>
             </form>
             {{-- Navigation --}}
+            @auth
+                <ul class="hidden md:flex space-x-7 font-semibold">
+                    <li><a href="{{ route('faq') }}"
+                            class="text-gray-700 hover:text-slate-100 transition-all duration-200 border border-solid border-amber-500 rounded-md px-5 py-1.5 hover:bg-amber-500">شروط
+                            الاستخدام</a>
+                    </li>
+                    <li><a href="{{ route('contact') }}"
+                            class="text-gray-700 hover:text-slate-100 transition-all duration-200 border border-solid border-amber-500 rounded-md px-5 py-1.5 hover:bg-amber-500">اتصل
+                            بنا</a>
+                    </li>
+                </ul>
+            @endauth
             <nav x-data="{ open: false }" x-cloak class="relative">
                 <button @click="open = !open" @click.outside="if (open) open = false" @class([
-                    'w-8 h-8 flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2',
+                    'w-10 h-10  flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2',
                     'md:hidden' => Auth::guest(),
                 ])>
                     @auth
-                        <img class="h-8 w-8 rounded-full" src="{{ Gravatar::get(Auth::user()->email) }}"
+                        <img class="h-10 w-10 rounded-full" src="{{ Gravatar::get(Auth::user()->email) }}"
                             alt="Image de profil">
                     @else
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-8 h-8">
+                            stroke="currentColor" class="w-10 h-10">
                             <path stroke-linecap="round" stroke-linejoin="round"
                                 d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
                         </svg>
@@ -116,6 +128,7 @@
                     </ul>
                 @endguest
             </nav>
+
         </header>
 
         @if (session('status'))
