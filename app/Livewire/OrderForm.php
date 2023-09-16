@@ -2,8 +2,6 @@
 
 namespace App\Livewire;
 
-use App\Models\Order;
-use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Livewire\Component;
 
 
@@ -62,24 +60,9 @@ class OrderForm extends Component
 
             $this->reset(['name', 'phone', 'quantity']);
             session()->flash('message', 'Commande placée !');
-            $order = Order::find($order->id);
-            $data = [
-                'order' => $order,
-                // Add any other data you need for the invoice template
-            ];
-
-            $pdf = PDF::loadView('invoice.invoice', $data);
-
-            // Save or send the PDF as needed
-            // $pdf->save(storage_path('invoices/invoice.pdf'));
-            // or
-            // $pdf->stream(); // for immediate download
-
-            return $pdf->download('invoice.pdf');
-            //return redirect()->route('index');
+            return redirect()->route('index');
         }
     }
-
 
     public function render()
     {
