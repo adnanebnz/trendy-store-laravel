@@ -90,6 +90,8 @@
                                 class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">اتصل بنا</a></li>
                         <li><a href="{{ route('auth.login') }}"
                                 class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">تسجيل الدخول</a></li>
+                        <li><a href="{{ route('auth.register') }}"
+                                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">تسجيل حساب جديد</a></li>
                     @endauth
                 </ul>
                 @guest
@@ -107,8 +109,10 @@
                                 class="text-slate-100 transition-all duration-200 rounded-md px-5 py-1.5  bg-amber-500 hover:bg-amber-600">تسجيل
                                 الدخول</a>
                         </li>
-
-
+                        <li><a href="{{ route('auth.register') }}"
+                                class="text-slate-100 transition-all duration-200 rounded-md px-5 py-1.5  bg-amber-500 hover:bg-amber-600">تسجيل
+                                حساب جديد</a>
+                        </li>
                     </ul>
                 @endguest
             </nav>
