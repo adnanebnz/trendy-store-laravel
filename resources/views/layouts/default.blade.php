@@ -17,120 +17,122 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="antialiased pt-10 bg-gradient-to-br from-orange-50/30 to-amber-50/20">
+<body class="antialiased pt-5 bg-gradient-to-br from-orange-50/30 to-amber-50/20">
     {{-- Conteneur global --}}
-    <div class="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+    <div>
         {{-- Header --}}
-        <header class="flex justify-between items-center space-x-5 text-slate-900">
-            {{-- Logo --}}
-            <a href="{{ route('index') }}" class="flex items-center gap-2">
-                <img src="{{ asset('images/LOGO-trendy.png') }}" alt="Logo"
-                    class="h-12 w-16 md:w-16 md:h-16 object-fill">
-            </a>
-            {{-- Formulaire de recherche --}}
-            <form action="{{ route('index') }}"
-                class="pb-3 pr-2 flex items-center border-b border-b-slate-300 text-slate-300 focus-within:border-b-slate-900 focus-within:text-slate-900 transition">
-                <input id="search" value="{{ request()->search }}"
-                    class="px-2 bg-transparent w-full outline-none leading-none placeholder-slate-400" type="search"
-                    name="search" placeholder="البحث عن منتج">
-                <button>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-4 h-4">
-                        <path fill-rule="evenodd"
-                            d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
-                            clip-rule="evenodd" />
+        <div x-data="{ open: false }"
+            class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+            <div class="flex flex-row items-center justify-between p-4">
+                <a href="{{ route('index') }}"
+                    class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline"><img
+                        src="{{ asset('images/LOGO-trendy.png') }}" class="h-14 w-14" /></a>
+                <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
+                    <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                        <path x-show="!open" fill-rule="evenodd"
+                            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z"
+                            clip-rule="evenodd"></path>
+                        <path x-show="open" fill-rule="evenodd"
+                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
                     </svg>
                 </button>
-            </form>
-            {{-- Navigation --}}
-            @auth
-                <ul class="hidden md:flex space-x-7 font-semibold">
-                    <li><a href="{{ route('faq') }}"
-                            class="text-gray-700 hover:text-slate-100 transition-all duration-200 border border-solid border-amber-500 rounded-md px-5 py-1.5 hover:bg-amber-500">شروط
-                            الاستخدام</a>
-                    </li>
-                    <li><a href="{{ route('contact') }}"
-                            class="text-gray-700 hover:text-slate-100 transition-all duration-200 border border-solid border-amber-500 rounded-md px-5 py-1.5 hover:bg-amber-500">اتصل
-                            بنا</a>
-                    </li>
-                </ul>
-            @endauth
-            <nav x-data="{ open: false }" x-cloak class="relative">
-                <button @click="open = !open" @click.outside="if (open) open = false" @class([
-                    'w-10 h-10  flex rounded-full bg-white text-sm focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2',
-                    'md:hidden' => Auth::guest(),
-                ])>
-                    @auth
-                        <img class="h-10 w-10 rounded-full" src="{{ Gravatar::get(Auth::user()->email) }}"
-                            alt="Image de profil">
-                    @else
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="w-10 h-10">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
-                        </svg>
-                    @endauth
-                </button>
-                <ul x-show="open" x-transition:enter="transition ease-out duration-200"
-                    x-transition:enter-start="transform opacity-0 scale-95"
-                    x-transition:enter-end="transform opacity-100 scale-100"
-                    x-transition:leave="transition ease-in duration-75"
-                    x-transition:leave-start="transform opacity-100 scale-100"
-                    x-transition:leave-end="transform opacity-0 scale-95" @class([
-                        'absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none',
-                        'md:hidden' => Auth::guest(),
-                    ]) tabindex="-1">
-                    @auth
-
-                        @if (Auth::user()->isAdmin())
-                            <li><a href="{{ route('admin.products.index') }}"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">اداره المنتجات</a>
-                            </li>
-                            <li><a href="{{ route('admin.orders.index') }}"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">ادارة الطلبات</a></li>
-                            <li><a href="{{ route('admin.contacts.index') }}"
-                                    class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">إدارة الرسائل</a></li>
-                        @endif
-                        <li><a href="{{ route('auth.logout') }}" @click.prevent="$refs.logout.submit()"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100">تسجيل خروج</a></li>
-                        <form x-ref="logout" action="{{ route('auth.logout') }}" method="POST" class="hidden">
-                            @csrf
-                        </form>
-                    @else
-                        <li><a href="{{ route('faq') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">شروط الاستخدام</a></li>
-                        <li><a href="{{ route('contact') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">اتصل بنا</a></li>
-                        <li><a href="{{ route('auth.login') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">تسجيل الدخول</a></li>
-                        <li><a href="{{ route('auth.register') }}"
-                                class="block px-4 py-2 text-sm text-gray-700 hover:text-gray-900">تسجيل حساب جديد</a></li>
-                    @endauth
-                </ul>
+            </div>
+            <nav :class="{ 'flex': open, 'hidden': !open }"
+                class="flex-col flex-grow hidden pb-4 md:pb-0 md:flex md:justify-end md:flex-row">
+                <a class="p-4 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-amber-100 focus:bg-amber-100 focus:outline-none focus:shadow-outline"
+                    href="{{ route('faq') }}">شروط الاستخدام</a>
+                <a class="p-4 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-amber-100 focus:bg-amber-100 focus:outline-none focus:shadow-outline"
+                    href="{{ route('contact') }}">اتصل بنا</a>
                 @guest
 
-                    <ul class="hidden md:flex space-x-7 font-semibold">
-                        <li><a href="{{ route('faq') }}"
-                                class="text-gray-700 hover:text-slate-100 transition-all duration-200 border border-solid border-amber-500 rounded-md px-5 py-1.5 hover:bg-amber-500">شروط
-                                الاستخدام</a>
-                        </li>
-                        <li><a href="{{ route('contact') }}"
-                                class="text-gray-700 hover:text-slate-100 transition-all duration-200 border border-solid border-amber-500 rounded-md px-5 py-1.5 hover:bg-amber-500">اتصل
-                                بنا</a>
-                        </li>
-                        <li><a href="{{ route('auth.login') }}"
-                                class="text-slate-100 transition-all duration-200 rounded-md px-5 py-1.5  bg-amber-500 hover:bg-amber-600">تسجيل
-                                الدخول</a>
-                        </li>
-                        <li><a href="{{ route('auth.register') }}"
-                                class="text-slate-100 transition-all duration-200 rounded-md px-5 py-1.5  bg-amber-500 hover:bg-amber-600">تسجيل
-                                حساب جديد</a>
-                        </li>
-                    </ul>
+                    <a class="p-4 mt-2 text-sm font-semibold bg-transparent rounded-lg 
+                    border solid border-amber-500 dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white 
+                    transition-all dark-mode:text-gray-200 md:mt-0 md:ml-4 focus:text-gray-900 hover:bg-amber-500 hover:text-white focus:bg-amber-100 focus:outline-none focus:shadow-outline"
+                        href="{{ route('auth.login') }}">تسجيل الدخول</a>
+                    <a class="p-4 mt-2 text-sm font-semibold rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4
+                    bg-amber-500 text-white hover:bg-amber-600 focus:bg-amber-100 focus:outline-none focus:shadow-outline
+                    "
+                        href="{{ route('auth.register') }}">تسجيل حساب جديد</a>
                 @endguest
+                @auth
+                    <div @click.away="open = false" class="relative" x-data="{ open: false }">
+                        <button @click="open = !open"
+                            class="flex flex-row text-gray-900 bg-gray-200 items-center w-full p-4 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-amber-100 focus:bg-amber-100 focus:outline-none focus:shadow-outline">
+                            <span>
+                                {{ auth()->user()->name }}
+                            </span>
+                            <svg fill="currentColor" viewBox="0 0 20 20" :class="{ 'rotate-180': open, 'rotate-0': !open }"
+                                class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                        <div x-show="open" x-transition:enter="transition ease-out duration-100"
+                            x-transition:enter-start="transform opacity-0 scale-95"
+                            x-transition:enter-end="transform opacity-100 scale-100"
+                            x-transition:leave="transition ease-in duration-75"
+                            x-transition:leave-start="transform opacity-100 scale-100"
+                            x-transition:leave-end="transform opacity-0 scale-95"
+                            class="absolute right-0 w-full md:max-w-screen-sm md:w-screen mt-2 origin-top-right">
+                            <div class="px-2 pt-2 pb-4 bg-white rounded-md shadow-lg dark-mode:bg-gray-700">
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <a class="flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                        href="#">
+                                        <div class="bg-teal-500 text-white rounded-lg p-3">
+                                            <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                                class="md:h-6 md:w-6 h-4 w-4">
+                                                <path
+                                                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="font-semibold">Appearance</p>
+                                            <p class="text-sm">Easy customization</p>
+                                        </div>
+                                    </a>
+                                    <a
+                                        class="flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline
+                                    href="#">
+                                        <div class="bg-teal-500 text-white rounded-lg p-3">
+                                            <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                                class="md:h-6 md:w-6 h-4 w-4">
+                                                <path
+                                                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z">
+                                                </path>
+                                            </svg>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="font-semibold">Comments</p>
+                                            <p class="text-sm">Check your latest comments</p>
+                                        </div>
+                                    </a>
+
+                                    <a class="flex row items-start rounded-lg bg-transparent p-2 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                                        href="{{ route('auth.logout') }}">
+                                        <div class="bg-teal-500 text-white rounded-lg p-3">
+                                            <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                                stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24"
+                                                class="md:h-6 md:w-6 h-4 w-4">
+                                                <path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
+                                                <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
+                                            </svg>
+                                        </div>
+                                        <div class="ml-3">
+                                            <p class="font-semibold">تسجيل خروج</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endauth
             </nav>
-
-        </header>
-
+        </div>
         @if (session('status'))
             <div class="mt-10 rounded-md bg-green-50 p-4">
                 <div class="flex">
