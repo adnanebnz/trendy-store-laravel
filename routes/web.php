@@ -28,7 +28,7 @@ Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 
 
 /* CONTACT SECTION START*/
-Route::view("/contact", 'contact')->name('contact');
+Route::view("/pages/contact", 'contact')->name('contact');
 Route::post("/contact", [ContactController::class, 'store'])->name('contact.store');
 /* CONTACT SECTION END*/
 
@@ -59,5 +59,7 @@ Route::delete("/admin/contacts/{contact}", [AdminController::class, "adminContac
 
 
 /* OTHER PAGES*/
-Route::view("/faq", 'faq')->name('faq');
+Route::get("/pages/faq", function () {
+    return view("faq");
+})->name('faq');
 /* OTHER PAGES END*/
